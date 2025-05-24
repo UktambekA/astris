@@ -3,604 +3,848 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astris Media - SMM va Marketing Xizmatlari</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Astris Media - SMM va Digital Marketing</title>
     <style>
-        :root {
-            --primary-color: #6a3de8;
-            --secondary-color: #4a2ba5;
-            --text-color: #333;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --accent-color: #ff6b6b;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
+        :root {
+            --bordo: #8B1538;
+            --bordo-light: #A91B47;
+            --cream: #F5F2E8;
+            --white: #FFFFFF;
+            --text-dark: #2C2C2C;
+            --text-light: #666666;
+            --gradient: linear-gradient(135deg, #8B1538 0%, #A91B47 100%);
+        }
+
         body {
-            background-color: #f4f4f4;
-            color: var(--text-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
         }
-        
+
+        /* Header */
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 0;
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(139, 21, 56, 0.1);
+            transition: all 0.3s ease;
         }
-        
-        .container {
+
+        nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
-        
+
         .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
+            gap: 2rem;
         }
-        
-        .nav-links li {
-            margin-left: 20px;
-        }
-        
+
         .nav-links a {
-            color: white;
             text-decoration: none;
+            color: var(--text-dark);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
         }
-        
+
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--bordo);
         }
-        
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 21, 56, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.4);
+        }
+
+        /* Hero Section */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/api/placeholder/1200/600") center/cover no-repeat;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            text-align: center;
-            color: white;
-            margin-top: 60px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 200%;
+            background: var(--gradient);
+            border-radius: 50%;
+            opacity: 0.05;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
         .hero-content {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
-        
-        .hero-content h1 {
-            font-size: 3rem;
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        .hero-content p {
+
+        .hero-text p {
             font-size: 1.2rem;
+            color: var(--text-light);
             margin-bottom: 2rem;
+            line-height: 1.8;
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 30px;
-            background-color: var(--primary-color);
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
             color: white;
+            padding: 1rem 2rem;
             border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 600;
             text-decoration: none;
-            transition: background-color 0.3s;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 21, 56, 0.3);
         }
-        
-        .btn:hover {
-            background-color: var(--secondary-color);
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.4);
         }
-        
-        section {
-            padding: 80px 0;
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--bordo);
+            padding: 1rem 2rem;
+            border: 2px solid var(--bordo);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
         }
-        
+
+        .btn-secondary:hover {
+            background: var(--bordo);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(139, 21, 56, 0.1);
+            transform: rotate(5deg);
+            transition: all 0.3s ease;
+        }
+
+        .hero-card:hover {
+            transform: rotate(0deg) translateY(-10px);
+            box-shadow: 0 30px 60px rgba(139, 21, 56, 0.15);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .section-title {
             text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
             font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
         }
-        
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .service-content {
-            padding: 20px;
-        }
-        
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        .pricing-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .pricing-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            text-align: center;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .pricing-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px;
-        }
-        
-        .pricing-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .price {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-        
-        .pricing-features {
-            padding: 20px;
-            list-style: none;
-        }
-        
-        .pricing-features li {
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .form-container {
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            left: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 0;
+            background: var(--cream);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.2);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Mashhur';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.15);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--bordo);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-unit {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--bordo);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-form {
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
-        
+
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
         }
-        
-        .form-control {
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 1rem;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            background: white;
             font-size: 1rem;
+            transition: all 0.3s ease;
         }
-        
-        .contact-info {
-            margin-top: 40px;
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--bordo);
+            box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.1);
         }
-        
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: 15px;
+            transition: all 0.3s ease;
         }
-        
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(139, 21, 56, 0.1);
+        }
+
         .contact-icon {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-right: 15px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
         }
-        
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-text h4 {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--text-dark);
+        }
+
+        .contact-text p {
+            color: var(--text-light);
+        }
+
+        /* Footer */
         footer {
-            background-color: var(--dark-color);
+            background: var(--text-dark);
             color: white;
-            padding: 40px 0;
-            text-align: center;
+            padding: 3rem 0 1rem;
         }
-        
-        .social-icons {
-            margin-top: 20px;
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
-        
-        .social-icons a {
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--cream);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--cream);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
             color: white;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
-        
-        .social-icons a:hover {
-            color: var(--accent-color);
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(139, 21, 56, 0.3);
         }
-        
+
         .footer-bottom {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-            }
-            
-            .nav-links {
-                margin-top: 20px;
-            }
-            
-            .nav-links li {
-                margin: 0 10px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-        
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            overflow: auto;
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 15% auto;
-            padding: 20px;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-            position: relative;
-        }
-        
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        .success-message {
             text-align: center;
-            padding: 20px;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
         }
-        
-        .success-icon {
-            font-size: 4rem;
-            color: #28a745;
-            margin-bottom: 20px;
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">Astris Media</a>
-                <ul class="nav-links">
-                    <li><a href="#xizmatlar">Xizmatlar</a></li>
-                    <li><a href="#narxlar">Narxlar</a></li>
-                    <li><a href="#buyurtma">Buyurtma</a></li>
-                    <li><a href="#boglanish">Bog'lanish</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <div class="logo">Astris Media</div>
+            <ul class="nav-links">
+                <li><a href="#home">Bosh sahifa</a></li>
+                <li><a href="#services">Xizmatlar</a></li>
+                <li><a href="#pricing">Narxlar</a></li>
+                <li><a href="#contact">Aloqa</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Buyurtma berish</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Raqamli marketing olamida biznesizni rivojlantiring</h1>
-                <p>SMM, Target, Influencer Marketing, Shaxsiy Brend va Kontent Strategiya xizmatlarimiz orqali biznesingizni yangi cho'qqilarga olib chiqamiz.</p>
-                <a href="#buyurtma" class="btn">Buyurtma qoldirish</a>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <h1>Brendingizni yangi darajaga olib chiqing</h1>
+                <p>Astris Media - sizning ishonchli hamkoringiz SMM, Target, Influencer Marketing va Digital Marketing sohasida. 2 yillik tajriba va professional jamoa bilan brendingizni muvaffaqiyatga olib boramiz.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
+                    <a href="#services" class="btn-secondary">Xizmatlar bilan tanishish</a>
+                </div>
+            </div>
+            <div class="hero-visual fade-in">
+                <div class="hero-card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Professional SMM</h3>
+                    <p>To'liq komanda bilan brendingizni strategik rivojlantirish</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="xizmatlar">
+    <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Xizmatlarimiz</h2>
-            <div class="services-container">
-                <div class="service-card">
-                    <img src="/api/placeholder/300/200" alt="SMM xizmati">
-                    <div class="service-content">
-                        <h3>SMM</h3>
-                        <p>Ijtimoiy tarmoqlarda biznesingiz uchun professional profillar yaratish va boshqarish. Doimiy kontent yaratish, auditoriya bilan muloqot va tahlillar.</p>
-                    </div>
+            <div class="section-title animate-on-scroll">
+                <h2>Bizning xizmatlarimiz</h2>
+                <p>Brendingizni rivojlantirish uchun barcha zarur xizmatlar bir joyda</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">📱</div>
+                    <h3>SMM Boshqaruv</h3>
+                    <p>Ijtimoiy tarmoqlarda brandni strategik rivojlantirish. Full komanda bilan professional yondoshish va keng qamrovli strategiya.</p>
                 </div>
-                
-                <div class="service-card">
-                    <img src="/api/placeholder/300/200" alt="Target reklama">
-                    <div class="service-content">
-                        <h3>Target Reklama</h3>
-                        <p>Instagram, Facebook va boshqa platformalarda maqsadli reklamalar orqali potensial mijozlaringizga yetib boring. Aniq auditoriyaga yo'naltirilgan reklama kampaniyalari.</p>
-                    </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">🎯</div>
+                    <h3>Target Reklama</h3>
+                    <p>Ijtimoiy tarmoqlarda brendingizni aniq auditoriyaga yo'naltirib, samarali reklama qilish. 2 yillik tajribaga ega targetologlar bilan.</p>
                 </div>
-                
-                <div class="service-card">
-                    <img src="/api/placeholder/300/200" alt="Influencer Marketing">
-                    <div class="service-content">
-                        <h3>Influencer Marketing</h3>
-                        <p>Eng mos keladigan influenserlar bilan hamkorlik o'rnatib, mahsulot yoki xizmatingizni keng auditoriyaga taqdim eting.</p>
-                    </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">👤</div>
+                    <h3>Shaxsiy Brend</h3>
+                    <p>Ijtimoiy tarmoqlarda imijingizni yaratish va strategik rivojlantirish. Full komanda bilan professional yondoshish.</p>
                 </div>
-                
-                <div class="service-card">
-                    <img src="/api/placeholder/300/200" alt="Shaxsiy Brend">
-                    <div class="service-content">
-                        <h3>Shaxsiy Brend</h3>
-                        <p>O'zingizni professional sifatida taniting. Shaxsiy brendingizni rivojlantirish va auditoriya orasida obro' qozonish.</p>
-                    </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">⭐</div>
+                    <h3>Influencer Marketing</h3>
+                    <p>Brandingizni liderlar bilan birga tanitish. Budjetdan kelib chiqqan holda eng samarali influyenserlar bilan hamkorlik.</p>
                 </div>
-                
-                <div class="service-card">
-                    <img src="/api/placeholder/300/200" alt="Kontent Strategiya">
-                    <div class="service-content">
-                        <h3>Kontent Strategiya</h3>
-                        <p>Biznesingiz maqsadlariga mos keladigan samarali kontent strategiyasini ishlab chiqish va amalga oshirish.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <img src="/api/placeholder/300/200" alt="Instagram profil yuritish">
-                    <div class="service-content">
-                        <h3>Instagram Profil Yuritish</h3>
-                        <p>Instagram profilingizni professional darajada boshqarish, postlar yaratish, stories tayyorlash va auditoriya bilan muloqot.</p>
-                    </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">📋</div>
+                    <h3>Strategiya + Kontent Plan</h3>
+                    <p>Brandingiz poydevorini mustahkamlash uchun oylik SMM strategiya va shu asosida to'liq kontent plan yaratish.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="narxlar" style="background-color: #f9f9f9;">
+    <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">Narxlar</h2>
-            <div class="pricing-container">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Boshlang'ich</h3>
-                        <div class="price">1,000,000 so'm</div>
-                        <p>oyiga</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Instagram profil yuritish</li>
-                        <li>Haftada 3 ta post</li>
-                        <li>Kunlik stories</li>
-                        <li>Oddiy kontent plan</li>
-                        <li>Oddiy dizayn</li>
-                    </ul>
-                    <a href="#buyurtma" class="btn" style="display: block; margin: 20px;">Buyurtma berish</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Professional</h3>
-                        <div class="price">2,500,000 so'm</div>
-                        <p>oyiga</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Instagram va Telegram profil</li>
-                        <li>Haftada 5 ta post</li>
-                        <li>Kunlik stories</li>
-                        <li>Batafsil kontent strategiya</li>
-                        <li>Professional dizayn</li>
-                        <li>Oddiy target reklama</li>
-                    </ul>
-                    <a href="#buyurtma" class="btn" style="display: block; margin: 20px;">Buyurtma berish</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Premium</h3>
-                        <div class="price">5,000,000 so'm</div>
-                        <p>oyiga</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Barcha ijtimoiy tarmoqlar</li>
-                        <li>Kunlik postlar</li>
-                        <li>Kunlik stories</li>
-                        <li>Chuqur kontent strategiya</li>
-                        <li>Premium dizayn</li>
-                        <li>Keng target reklama</li>
-                        <li>Influencer marketing</li>
-                        <li>Doimiy konsultatsiya</li>
-                    </ul>
-                    <a href="#buyurtma" class="btn" style="display: block; margin: 20px;">Buyurtma berish</a>
-                </div>
+            <div class="section-title animate-on-scroll">
+                <h2>Xizmatlar narxlari</h2>
+                <p>Har bir biznes uchun mos narxlar va paketlar</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Order Form Section -->
-    <section id="buyurtma">
-        <div class="container">
-            <h2 class="section-title">Buyurtma qoldirish</h2>
-            <div class="form-container">
-                <form id="orderForm">
-                    <div class="form-group">
-                        <label for="name">Ism-familiya</label>
-                        <input type="text" id="name" class="form-control" required>
+            <div class="pricing-grid">
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>Target Reklama</h3>
+                        <div class="price">$150</div>
+                        <div class="price-unit">oyiga</div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Telefon raqam</label>
-                        <input type="tel" id="phone" class="form-control" required>
+                    <ul class="pricing-features">
+                        <li>2 yillik tajribaga ega targetolog</li>
+                        <li>Aniq auditoriya tahlili</li>
+                        <li>Samarali reklama kampaniyalari</li>
+                        <li>Oylik hisobot</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Tanlash</a>
+                </div>
+                
+                <div class="pricing-card featured animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>SMM Boshqaruv</h3>
+                        <div class="price">$700-1000</div>
+                        <div class="price-unit">oyiga</div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email (ixtiyoriy)</label>
-                        <input type="email" id="email" class="form-control">
+                    <ul class="pricing-features">
+                        <li>To'liq mas'uliyat va komanda</li>
+                        <li>Strategik rejalashtirish</li>
+                        <li>Kontent yaratish</li>
+                        <li>Kommunity management</li>
+                        <li>Tahlil va hisobotlar</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Tanlash</a>
+                </div>
+                
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3>Shaxsiy Brend</h3>
+                        <div class="price">$500-1000</div>
+                        <div class="price-unit">oyiga</div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="service">Xizmat turi</label>
-                        <select id="service" class="form-control" required>
-                            <option value="">Tanlang</option>
-                            <option value="smm">SMM</option>
-                            <option value="target">Target Reklama</option>
-                            <option value="influencer">Influencer Marketing</option>
-                            <option value="personal-brand">Shaxsiy Brend</option>
-                            <option value="content-strategy">Kontent Strategiya</option>
-                            <option value="instagram">Instagram Profil Yuritish</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="package">Paket</label>
-                        <select id="package" class="form-control" required>
-                            <option value="">Tanlang</option>
-                            <option value="basic">Boshlang'ich</option>
-                            <option value="professional">Professional</option>
-                            <option value="premium">Premium</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Qo'shimcha ma'lumot</label>
-                        <textarea id="message" class="form-control" rows="5"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn" style="width: 100%;">Buyurtma qoldirish</button>
-                </form>
+                    <ul class="pricing-features">
+                        <li>Shaxsiy imij yaratish</li>
+                        <li>Professional fotosurat</li>
+                        <li>Kontent strategiya</li>
+                        <li>SMM boshqaruv</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Tanlash</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="boglanish" style="background-color: #f9f9f9;">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Bog'lanish</h2>
-            <div class="form-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+            <div class="section-title animate-on-scroll">
+                <h2>Biz bilan bog'laning</h2>
+                <p>Bepul konsultatsiya uchun hoziroq murojaat qiling</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form animate-on-scroll">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Ismingiz</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
-                        <div>
-                            <h3>Telefon</h3>
+                        <div class="form-group">
+                            <label for="phone">Telefon raqam</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+998 90 123 45 67" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Xizmat turi</label>
+                            <select id="service" name="service" required>
+                                <option value="">Xizmat turini tanlang</option>
+                                <option value="smm">SMM Boshqaruv</option>
+                                <option value="target">Target Reklama</option>
+                                <option value="influencer">Influencer Marketing</option>
+                                <option value="brand">Shaxsiy Brend</option>
+                                <option value="content">Strategiya + Kontent Plan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Qo'shimcha ma'lumot</label>
+                            <textarea id="message" name="message" placeholder="Biznesingiz haqida qisqacha yozib qoldiring. Qanday natija xohlaysiz? Qaysi ijtimoiy tarmoqlar?"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Buyurtma yuborish</button>
+                    </form>
+                </div>
+                <div class="contact-info animate-on-scroll">
+                    <h3>Biz bilan bog'laning</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h4>Telefon</h4>
                             <p>+998 90 123 45 67</p>
                         </div>
                     </div>
-                    
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>info@astrismedia.uz</p>
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>astrismedia1@gmail.com</p>
                         </div>
                     </div>
-                    
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3>Manzil</h3>
-                            <p>Toshkent shahri, Chilonzor tumani</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-telegram"></i>
-                        </div>
-                        <div>
-                            <h3>Telegram</h3>
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Telegram</h4>
                             <p>@astrismedia</p>
                         </div>
                     </div>
-                    
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-instagram"></i>
+                        <div class="contact-icon">📷</div>
+                        <div class="contact-text">
+                            <h4>Instagram</h4>
+                            <p>@astris_media</p>
                         </div>
-                        <div>
-                            <h3>Instagram</h3>
-                            <p>@astris.media</p>
-                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://t.me/astrismedia" class="social-link">📱</a>
+                        <a href="https://www.instagram.com/astris_media" class="social-link">📷</a>
                     </div>
                 </div>
             </div>
@@ -611,81 +855,305 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <h3>Astris Media</h3>
-                <p>SMM, Target, Influencer Marketing xizmatlari</p>
-                
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                <div class="footer-section">
+                    <h3>Astris Media</h3>
+                    <p>Professional SMM va Digital Marketing xizmatlari. Brendingizni yangi darajaga olib chiqish uchun bizning tajribali jamoa bilan ishlang.</p>
+                    <div class="social-links">
+                        <a href="https://t.me/astrismedia" class="social-link">📱</a>
+                        <a href="https://www.instagram.com/astris_media" class="social-link">📷</a>
+                    </div>
                 </div>
-                
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Astris Media. Barcha huquqlar himoyalangan.</p>
+                <div class="footer-section">
+                    <h3>Xizmatlar</h3>
+                    <p><a href="#services">SMM Boshqaruv</a></p>
+                    <p><a href="#services">Target Reklama</a></p>
+                    <p><a href="#services">Influencer Marketing</a></p>
+                    <p><a href="#services">Shaxsiy Brend</a></p>
+                    <p><a href="#services">Strategiya + Kontent Plan</a></p>
                 </div>
+                <div class="footer-section">
+                    <h3>Aloqa</h3>
+                    <p>📞 +998 90 123 45 67</p>
+                    <p>✉️ astrismedia1@gmail.com</p>
+                    <p>📱 @astrismedia</p>
+                    <p>📷 @astris_media</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Ish vaqti</h3>
+                    <p>Dushanba - Juma: 9:00 - 18:00</p>
+                    <p>Shanba: 10:00 - 16:00</p>
+                    <p>Yakshanba: Dam olish kuni</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Astris Media. Barcha huquqlar himoyalangan.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="success-message">
-                <div class="success-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <h3>Buyurtmangiz qabul qilindi!</h3>
-                <p>Tez orada siz bilan bog'lanamiz.</p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Form submission
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const service = document.getElementById('service').value;
-            const packageType = document.getElementById('package').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would normally send this data to a server
-            console.log('Order submitted:', { name, phone, email, service, packageType, message });
-            
-            // Show success modal
-            document.getElementById('successModal').style.display = 'block';
-            
-            // Reset form
-            document.getElementById('orderForm').reset();
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
-        
-        // Close modal when clicking on close button
-        document.querySelector('.close').addEventListener('click', function() {
-            document.getElementById('successModal').style.display = 'none';
-        });
-        
-        // Close modal when clicking outside of it
-        window.addEventListener('click', function(event) {
-            if (event.target == document.getElementById('successModal')) {
-                document.getElementById('successModal').style.display = 'none';
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(15px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
             }
         });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Yuborilmoqda...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.textContent = 'Muvaffaqiyatli yuborildi! ✅';
+                submitBtn.style.background = '#28a745';
+                
+                // Show success popup
+                showSuccessPopup(data);
+                
+                // Reset form after 3 seconds
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                }, 3000);
+            }, 1500);
+        });
+
+        // Success popup
+        function showSuccessPopup(data) {
+            const popup = document.createElement('div');
+            popup.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 2rem;
+                border-radius: 20px;
+                box-shadow: 0 20px 60px rgba(139, 21, 56, 0.3);
+                z-index: 10000;
+                max-width: 500px;
+                width: 90%;
+                text-align: center;
+                animation: popupShow 0.3s ease;
+            `;
+            
+            popup.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+                <h3 style="color: var(--bordo); margin-bottom: 1rem;">Buyurtmangiz qabul qilindi!</h3>
+                <p style="color: var(--text-light); margin-bottom: 2rem;">
+                    <strong>${data.name}</strong>, tez orada operatorlarimiz siz bilan bog'lanishadi. 
+                    Sizning so'rovingiz: <strong>${getServiceName(data.service)}</strong>
+                </p>
+                <button onclick="this.parentElement.remove(); document.querySelector('.popup-overlay').remove();" 
+                        style="background: var(--gradient); color: white; border: none; padding: 0.75rem 2rem; border-radius: 50px; cursor: pointer;">
+                    Yopish
+                </button>
+            `;
+            
+            const overlay = document.createElement('div');
+            overlay.className = 'popup-overlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 9999;
+                animation: overlayShow 0.3s ease;
+            `;
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes popupShow {
+                    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                }
+                @keyframes overlayShow {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+            `;
+            
+            document.head.appendChild(style);
+            document.body.appendChild(overlay);
+            document.body.appendChild(popup);
+            
+            // Auto close after 10 seconds
+            setTimeout(() => {
+                if (popup.parentElement) {
+                    popup.remove();
+                    overlay.remove();
+                    style.remove();
+                }
+            }, 10000);
+        }
+
+        function getServiceName(service) {
+            const services = {
+                'smm': 'SMM Boshqaruv',
+                'target': 'Target Reklama',
+                'influencer': 'Influencer Marketing',
+                'brand': 'Shaxsiy Brend',
+                'content': 'Strategiya + Kontent Plan'
+            };
+            return services[service] || 'Tanlanmagan';
+        }
+
+        // Add stagger animation to service cards
+        window.addEventListener('load', () => {
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            pricingCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Add floating animation to hero elements
+        setInterval(() => {
+            const heroCard = document.querySelector('.hero-card');
+            if (heroCard) {
+                heroCard.style.transform = `rotate(${Math.sin(Date.now() / 2000) * 2 + 3}deg) translateY(${Math.sin(Date.now() / 1500) * 5}px)`;
+            }
+        }, 50);
+
+        // Add particles effect to hero background
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: linear-gradient(45deg, #8B1538, #A91B47);
+                border-radius: 50%;
+                pointer-events: none;
+                opacity: 0.3;
+                animation: float 4s linear infinite;
+            `;
+            
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 4 + 's';
+            
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 4000);
+            }
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('998')) {
+                value = '+' + value;
+            } else if (value.startsWith('8')) {
+                value = '+99' + value;
+            } else if (!value.startsWith('+998')) {
+                value = '+998' + value;
+            }
+            
+            // Format: +998 90 123 45 67
+            if (value.length > 4) {
+                value = value.slice(0, 4) + ' ' + value.slice(4);
+            }
+            if (value.length > 7) {
+                value = value.slice(0, 7) + ' ' + value.slice(7);
+            }
+            if (value.length > 11) {
+                value = value.slice(0, 11) + ' ' + value.slice(11);
+            }
+            if (value.length > 14) {
+                value = value.slice(0, 14) + ' ' + value.slice(14, 16);
+            }
+            
+            e.target.value = value;
+        });
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            element.textContent = '';
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Start typing effect when page loads
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero-text h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                setTimeout(() => {
+                    typeWriter(heroTitle, originalText, 50);
+                }, 500);
+            }
         });
     </script>
 </body>
