@@ -501,11 +501,27 @@
             background: var(--cream);
             border-radius: 15px;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
         }
 
         .contact-item:hover {
             transform: translateX(10px);
             box-shadow: 0 5px 20px rgba(139, 21, 56, 0.1);
+        }
+
+        .contact-item.clickable {
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .contact-item.clickable:hover {
+            border-color: var(--bordo);
+            background: linear-gradient(135deg, var(--cream), rgba(139, 21, 56, 0.05));
+        }
+
+        .contact-item.clickable:active {
+            transform: translateX(10px) scale(0.98);
         }
 
         .contact-icon {
@@ -2148,34 +2164,34 @@
                 </div>
                 <div class="contact-info animate-on-scroll">
                     <h3>Biz bilan bog'laning</h3>
-                    <div class="contact-item">
+                    <a href="tel:+998500786258" class="contact-item clickable">
                         <div class="contact-icon">📞</div>
                         <div class="contact-text">
                             <h4>Telefon</h4>
                             <p>+998 50 078 62 58</p>
                         </div>
-                    </div>
-                    <div class="contact-item">
+                    </a>
+                    <a href="mailto:astrismedia1@gmail.com" class="contact-item clickable">
                         <div class="contact-icon">✉️</div>
                         <div class="contact-text">
                             <h4>Email</h4>
                             <p>astrismedia1@gmail.com</p>
                         </div>
-                    </div>
-                    <div class="contact-item">
+                    </a>
+                    <a href="https://t.me/astrismedia" target="_blank" class="contact-item clickable">
                         <div class="contact-icon">📍</div>
                         <div class="contact-text">
                             <h4>Telegram</h4>
                             <p>@astrismedia</p>
                         </div>
-                    </div>
-                    <div class="contact-item">
+                    </a>
+                    <a href="https://www.instagram.com/astris_media" target="_blank" class="contact-item clickable">
                         <div class="contact-icon">📷</div>
                         <div class="contact-text">
                             <h4>Instagram</h4>
                             <p>@astris_media</p>
                         </div>
-                    </div>
+                    </a>
                     <div class="social-links">
                         <a href="https://t.me/astrismedia" class="social-link">📱</a>
                         <a href="https://www.instagram.com/astris_media" class="social-link">📷</a>
