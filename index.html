@@ -632,12 +632,12 @@
             height: 100%;
             display: flex;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 1.6rem;
         }
 
         .brand-item {
-            flex: 0 0 calc(20% - 1.6rem);
+            flex: 0 0 calc(20% - 1.28rem);
             height: 100%;
-            margin: 0 0.8rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -648,6 +648,7 @@
             box-shadow: 0 8px 25px rgba(139, 21, 56, 0.08);
             position: relative;
             overflow: hidden;
+            min-width: 0;
         }
 
         .brand-item::before {
@@ -879,6 +880,439 @@
             margin-right: auto;
         }
 
+        /* Influencer Marketing Section */
+        .influencer-marketing {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .campaign-overview {
+            margin-bottom: 4rem;
+        }
+
+        .campaign-card {
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.1);
+            border: 2px solid rgba(139, 21, 56, 0.05);
+        }
+
+        .campaign-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(139, 21, 56, 0.1);
+        }
+
+        .brand-logo {
+            background: white;
+            padding: 1rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.1);
+        }
+
+        .campaign-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .campaign-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--bordo);
+            box-shadow: 0 4px 15px rgba(139, 21, 56, 0.1);
+        }
+
+        .campaign-details h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .campaign-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .campaign-details li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .youtube-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .youtube-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--cream);
+        }
+
+        .youtube-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.15);
+        }
+
+        .youtube-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(45deg, #ff0000 0%, #cc0000 100%);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .influencer-cta {
+            text-align: center;
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
+            margin-top: 2rem;
+        }
+
+        .influencer-cta h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .influencer-cta p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Personal Brand Section */
+        .personal-brand {
+            padding: 6rem 0;
+            background: var(--cream);
+        }
+
+        .brand-showcase {
+            margin-bottom: 4rem;
+        }
+
+        .brand-profile-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.1);
+            border: 2px solid rgba(139, 21, 56, 0.05);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(139, 21, 56, 0.1);
+        }
+
+        .profile-avatar {
+            flex-shrink: 0;
+        }
+
+        .profile-info h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .profile-handle {
+            font-size: 1.1rem;
+            color: var(--bordo);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .badge {
+            background: linear-gradient(45deg, var(--bordo), var(--bordo-light));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(139, 21, 56, 0.2);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .result-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.15);
+            border-color: var(--bordo);
+        }
+
+        .result-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-content h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--bordo);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .strategy-details {
+            margin-bottom: 2rem;
+        }
+
+        .strategy-details h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .strategy-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .strategy-details li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .profile-cta {
+            text-align: center;
+        }
+
+        .instagram-profile-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .instagram-profile-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
+        }
+
+        .personal-brand-cta {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
+            margin-top: 2rem;
+        }
+
+        .personal-brand-cta h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .personal-brand-cta p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Target Advertising Section */
+        .target-advertising {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .target-showcase {
+            margin-bottom: 4rem;
+        }
+
+        .target-campaign-card {
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.1);
+            border: 2px solid rgba(139, 21, 56, 0.05);
+        }
+
+        .budget-results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .budget-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.08);
+        }
+
+        .budget-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.15);
+            border-color: var(--bordo);
+        }
+
+        .budget-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .budget-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .budget-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--bordo);
+            margin-bottom: 0.5rem;
+        }
+
+        .budget-content p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .roi-highlight {
+            margin-top: 2rem;
+        }
+
+        .roi-card {
+            background: linear-gradient(135deg, var(--bordo), var(--bordo-light));
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.2);
+        }
+
+        .roi-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .roi-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .target-cta {
+            text-align: center;
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
+            margin-top: 2rem;
+        }
+
+        .target-cta h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .target-cta p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .brands-carousel {
@@ -984,6 +1418,65 @@
             }
 
             .smm-cta h3 {
+                font-size: 1.5rem;
+            }
+
+            .campaign-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .campaign-stats {
+                justify-content: center;
+            }
+
+            .youtube-videos-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .influencer-cta {
+                padding: 2rem 1.5rem;
+            }
+
+            .influencer-cta h3 {
+                font-size: 1.5rem;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .achievement-badges {
+                justify-content: center;
+            }
+
+            .personal-brand-cta {
+                padding: 2rem 1.5rem;
+            }
+
+            .personal-brand-cta h3 {
+                font-size: 1.5rem;
+            }
+
+            .budget-results-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .target-cta {
+                padding: 2rem 1.5rem;
+            }
+
+            .target-cta h3 {
                 font-size: 1.5rem;
             }
         }
@@ -1166,10 +1659,6 @@
                 <p>Ishonchli brendlar bizga ishonishadi</p>
             </div>
             <div class="brands-carousel animate-on-scroll">
-                <button class="brand-nav-btn prev-btn" onclick="changeBrand(-1)" id="prevBtn">
-                    <span>‹</span>
-                </button>
-
                 <div class="brands-container">
                     <div class="brands-track" id="brandsTrack">
                         <div class="brand-item" data-index="0">
@@ -1201,18 +1690,6 @@
                         </div>
                     </div>
                 </div>
-
-                <button class="brand-nav-btn next-btn" onclick="changeBrand(1)" id="nextBtn">
-                    <span>›</span>
-                </button>
-            </div>
-
-            <div class="brand-dots animate-on-scroll">
-                <span class="dot active" onclick="goToBrand(0)"></span>
-                <span class="dot" onclick="goToBrand(1)"></span>
-                <span class="dot" onclick="goToBrand(2)"></span>
-                <span class="dot" onclick="goToBrand(3)"></span>
-                <span class="dot" onclick="goToBrand(4)"></span>
             </div>
 
         </div>
@@ -1280,6 +1757,296 @@
             <div class="smm-cta animate-on-scroll">
                 <h3>O'z brendingizni ham shunday rivojlantiring!</h3>
                 <p>Professional SMM xizmatlarimiz bilan brendingizni yangi darajaga olib chiqing</p>
+                <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Influencer Marketing Section -->
+    <section id="influencer-marketing" class="influencer-marketing">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Influencer Marketing</h2>
+                <p>Coca Cola bilan hamkorlikda professional kampaniyalar</p>
+            </div>
+            
+            <div class="campaign-overview animate-on-scroll">
+                <div class="campaign-card">
+                    <div class="campaign-header">
+                        <div class="brand-logo">
+                            <img src="images/coca_cola.png" alt="Coca Cola" style="width: 80px; height: 80px; object-fit: contain;">
+                        </div>
+                        <div class="campaign-info">
+                            <h3>Coca Cola Influencer Marketing</h3>
+                            <p class="campaign-stats">
+                                <span class="stat-item">🎯 2 ta kampaniya</span>
+                                <span class="stat-item">📅 Yangi yil va bahoriy bayramlar</span>
+                                <span class="stat-item">👥 YouTube blogerlar</span>
+                                <span class="stat-item">📊 Million ko'rishlar</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="campaign-details">
+                        <h4>Kampaniya tafsilotlari:</h4>
+                        <ul>
+                            <li>✅ Budjetdan kelib chiqqan holda YouTube blogerlarni tanlash</li>
+                            <li>✅ Professional ssenariy tayyorlash</li>
+                            <li>✅ Rekvizitlar yig'ish va tayyorlash</li>
+                            <li>✅ Yuqori sifatli video ishlab chiqarish</li>
+                            <li>✅ Talabdan kelib chiqqan holda million ko'rishlar soniga erishish</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="youtube-videos-grid animate-on-scroll">
+                <div class="video-card youtube-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/6ASGfLwQHd0" width="100%" height="300"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Coca Cola Kampaniya #1</h3>
+                        <p>Yangi yil kampaniyasi - YouTube Shorts</p>
+                        <a href="https://youtube.com/shorts/6ASGfLwQHd0?si=ODQwWeIFgnKGno_8" target="_blank"
+                            class="youtube-link">
+                            <span>YouTube'da ko'rish</span>
+                            <span class="link-icon">▶️</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card youtube-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/EhEkcGVc1iE" width="100%" height="300"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Coca Cola Kampaniya #2</h3>
+                        <p>Bahoriy bayramlar kampaniyasi</p>
+                        <a href="https://youtu.be/EhEkcGVc1iE?si=fe-SlSoQ7LGzotlJ" target="_blank"
+                            class="youtube-link">
+                            <span>YouTube'da ko'rish</span>
+                            <span class="link-icon">▶️</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card youtube-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/FFyEgz54ooU" width="100%" height="300"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Coca Cola Kampaniya #3</h3>
+                        <p>Yangi yil kampaniyasi - Shorts</p>
+                        <a href="https://youtube.com/shorts/FFyEgz54ooU?si=Q-qWjRx7hHx3g_bK" target="_blank"
+                            class="youtube-link">
+                            <span>YouTube'da ko'rish</span>
+                            <span class="link-icon">▶️</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card youtube-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/BSWdxq-6L-Q" width="100%" height="300"
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Coca Cola Kampaniya #4</h3>
+                        <p>Bahoriy bayramlar kampaniyasi - Shorts</p>
+                        <a href="https://youtube.com/shorts/BSWdxq-6L-Q?si=riDjE8jREzGMKwFn" target="_blank"
+                            class="youtube-link">
+                            <span>YouTube'da ko'rish</span>
+                            <span class="link-icon">▶️</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="influencer-cta animate-on-scroll">
+                <h3>O'z brendingiz uchun ham shunday kampaniyalar!</h3>
+                <p>Professional influencer marketing xizmatlarimiz bilan brendingizni millionlar ko'rishiga olib chiqing</p>
+                <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Brand Section -->
+    <section id="personal-brand" class="personal-brand">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Shaxsiy Brand</h2>
+                <p>Professional shaxsiy brending natijalari</p>
+            </div>
+            
+            <div class="brand-showcase animate-on-scroll">
+                <div class="brand-profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="https://www.instagram.com/alimova_mavjuda?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" alt="Alimova Mavjuda" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--bordo);">
+                        </div>
+                        <div class="profile-info">
+                            <h3>Alimova Mavjuda</h3>
+                            <p class="profile-handle">@alimova_mavjuda</p>
+                            <div class="achievement-badges">
+                                <span class="badge">🎯 Targetsiz natija</span>
+                                <span class="badge">📈 1 oy ichida</span>
+                                <span class="badge">🔥 Viral natija</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-icon">👥</div>
+                            <div class="result-content">
+                                <h4>Obunachilar</h4>
+                                <div class="result-number">9,000+</div>
+                                <p>1 oyda targetsiz erishilgan</p>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <div class="result-icon">📊</div>
+                            <div class="result-content">
+                                <h4>Qamrov</h4>
+                                <div class="result-number">2M+</div>
+                                <p>900-800 mingdan oshib ketdi</p>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <div class="result-icon">⚡</div>
+                            <div class="result-content">
+                                <h4>O'sish</h4>
+                                <div class="result-number">120%+</div>
+                                <p>Qamrov o'sishi</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-details">
+                        <h4>Strategiya tafsilotlari:</h4>
+                        <ul>
+                            <li>✅ Targetsiz organik o'sish strategiyasi</li>
+                            <li>✅ Viral kontent yaratish</li>
+                            <li>✅ Professional fotosurat va video</li>
+                            <li>✅ Konsistent posting jadvali</li>
+                            <li>✅ Engagement optimizatsiyasi</li>
+                            <li>✅ Hashtag strategiyasi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="profile-cta">
+                        <a href="https://www.instagram.com/alimova_mavjuda?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="instagram-profile-link">
+                            <span>Instagram profili</span>
+                            <span class="link-icon">📱</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="personal-brand-cta animate-on-scroll">
+                <h3>O'z shaxsiy brendingizni ham shunday rivojlantiring!</h3>
+                <p>Professional shaxsiy brending xizmatlarimiz bilan Instagram'da millionlar ko'rishiga olib chiqing</p>
+                <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Advertising Section -->
+    <section id="target-advertising" class="target-advertising">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Target Reklama</h2>
+                <p>Professional target reklama kampaniyalari natijalari</p>
+            </div>
+            
+            <div class="target-showcase animate-on-scroll">
+                <div class="target-campaign-card">
+                    <div class="campaign-header">
+                        <div class="brand-logo">
+                            <img src="images/piona.png" alt="Piona Shop" style="width: 80px; height: 80px; object-fit: contain;">
+                        </div>
+                        <div class="campaign-info">
+                            <h3>Piona Shop Target Kampaniyasi</h3>
+                            <p class="campaign-stats">
+                                <span class="stat-item">🎯 6 ta kompaniya</span>
+                                <span class="stat-item">⏰ 1 kun faqat</span>
+                                <span class="stat-item">💰 19$ umumiy harajat</span>
+                                <span class="stat-item">🔥 Barcha sumkalar sotildi</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="budget-results-grid">
+                        <div class="budget-card">
+                            <div class="budget-icon">💵</div>
+                            <div class="budget-content">
+                                <h4>Kunlik Budjet</h4>
+                                <div class="budget-number">$5</div>
+                                <p>Har bir kampaniya uchun</p>
+                            </div>
+                        </div>
+                        
+                        <div class="budget-card">
+                            <div class="budget-icon">📊</div>
+                            <div class="budget-content">
+                                <h4>Kampaniyalar</h4>
+                                <div class="budget-number">6</div>
+                                <p>Faqat 1 kunda</p>
+                            </div>
+                        </div>
+                        
+                        <div class="budget-card">
+                            <div class="budget-icon">💸</div>
+                            <div class="budget-content">
+                                <h4>Umumiy Harajat</h4>
+                                <div class="budget-number">$19</div>
+                                <p>Barcha kampaniyalar uchun</p>
+                            </div>
+                        </div>
+                        
+                        <div class="budget-card">
+                            <div class="budget-icon">🛍️</div>
+                            <div class="budget-content">
+                                <h4>Natija</h4>
+                                <div class="budget-number">100%</div>
+                                <p>Barcha sumkalar sotildi</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="campaign-details">
+                        <h4>Kampaniya tafsilotlari:</h4>
+                        <ul>
+                            <li>✅ Kunlik budjet 5$ dan boshlangan</li>
+                            <li>✅ 6 ta alohida target kampaniyasi</li>
+                            <li>✅ Faqat 1 kun davomida ishlagan</li>
+                            <li>✅ Umumiy harajat atigi 19$</li>
+                            <li>✅ Do'kondagi barcha sumkalar sotilgan</li>
+                            <li>✅ Yuqori ROI va samarali natija</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="roi-highlight">
+                        <div class="roi-card">
+                            <h4>🎯 ROI Natijasi</h4>
+                            <p>19$ harajat evaziga do'kondagi barcha mahsulotlar sotildi. Bu professional target reklama strategiyasining ajoyib natijasi!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="target-cta animate-on-scroll">
+                <h3>O'z biznesingiz uchun ham shunday samarali target reklama!</h3>
+                <p>Professional target reklama xizmatlarimiz bilan minimal budjetda maksimal natija oling</p>
                 <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
             </div>
         </div>
@@ -1792,9 +2559,6 @@
 
         function changeBrand(direction) {
             const track = document.getElementById('brandsTrack')
-            const prevBtn = document.getElementById('prevBtn')
-            const nextBtn = document.getElementById('nextBtn')
-            const dots = document.querySelectorAll('.dot')
 
             // Calculate new position
             const newPosition = currentPosition + direction
@@ -1813,22 +2577,10 @@
 
             // Apply transform to track
             track.style.transform = `translateX(${transformValue}%)`
-
-            // Update button states
-            prevBtn.disabled = currentPosition === 0
-            nextBtn.disabled = currentPosition === maxPosition
-
-            // Update dots
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentPosition)
-            })
         }
 
         function goToBrand(index) {
             const track = document.getElementById('brandsTrack')
-            const prevBtn = document.getElementById('prevBtn')
-            const nextBtn = document.getElementById('nextBtn')
-            const dots = document.querySelectorAll('.dot')
 
             // Update current position
             currentPosition = index
@@ -1839,36 +2591,16 @@
 
             // Apply transform to track
             track.style.transform = `translateX(${transformValue}%)`
-
-            // Update button states
-            prevBtn.disabled = currentPosition === 0
-            nextBtn.disabled = currentPosition === maxPosition
-
-            // Update dots
-            dots.forEach((dot, dotIndex) => {
-                dot.classList.toggle('active', dotIndex === currentPosition)
-            })
         }
 
         // Initialize carousel
         function initCarousel() {
-            const prevBtn = document.getElementById('prevBtn')
-            const nextBtn = document.getElementById('nextBtn')
-            const dots = document.querySelectorAll('.dot')
-
-            // Set initial button states
-            prevBtn.disabled = true
-            nextBtn.disabled = false
-
-            // Set initial dot state
-            dots[0].classList.add('active')
-
             // Set initial transform
             const track = document.getElementById('brandsTrack')
             track.style.transform = 'translateX(0%)'
         }
 
-        // Auto-advance carousel every 5 seconds
+        // Auto-advance carousel every 3 seconds (faster rotation)
         let autoAdvanceInterval = setInterval(() => {
             if (currentPosition < maxPosition) {
                 changeBrand(1)
@@ -1876,26 +2608,16 @@
                 // Reset to beginning
                 goToBrand(0)
             }
-        }, 5000)
+        }, 3000)
 
-        // Pause auto-advance on hover
-        const carousel = document.querySelector('.brands-carousel')
-        carousel.addEventListener('mouseenter', () => {
-            clearInterval(autoAdvanceInterval)
-        })
-
-        carousel.addEventListener('mouseleave', () => {
-            autoAdvanceInterval = setInterval(() => {
-                if (currentPosition < maxPosition) {
-                    changeBrand(1)
-                } else {
-                    goToBrand(0)
-                }
-            }, 5000)
-        })
+        // Remove hover pause functionality - keep it running continuously
+        // The carousel will now rotate automatically without stopping on hover
 
         // Initialize when page loads
         window.addEventListener('load', initCarousel)
+
+        // Fully automated carousel - no user interaction needed
+        // The carousel will rotate automatically every 3 seconds
     </script>
 </body>
 
