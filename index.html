@@ -1346,8 +1346,9 @@
             margin-right: auto;
         }
 
+
         /* Responsive Design - Mobile First Approach */
-        
+
         /* Large Desktop (1400px+) */
         @media (min-width: 1400px) {
             .container {
@@ -1362,32 +1363,32 @@
                 font-size: 3rem;
             }
         }
-
+        
         /* Desktop (1200px - 1399px) */
         @media (max-width: 1399px) and (min-width: 1200px) {
             .brands-carousel {
                 max-width: 1000px;
                 gap: 1rem;
             }
-
+        
             .brands-container {
                 width: 700px;
                 height: 160px;
             }
         }
-
+        
         /* Large Tablet (992px - 1199px) */
         @media (max-width: 1199px) and (min-width: 992px) {
             .brands-carousel {
                 max-width: 800px;
                 gap: 0.8rem;
             }
-
+        
             .brands-container {
                 width: 600px;
                 height: 150px;
             }
-
+        
             .brand-nav-btn {
                 width: 50px;
                 height: 50px;
@@ -1402,7 +1403,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
+        
         /* Tablet (768px - 991px) */
         @media (max-width: 991px) and (min-width: 768px) {
             .nav-links {
@@ -1426,6 +1427,7 @@
             }
             
             .contact-content {
+                grid-template-columns: 1fr; /* Changed to single column */
                 gap: 3rem;
             }
             
@@ -1433,7 +1435,7 @@
                 max-width: 600px;
                 gap: 0.5rem;
             }
-
+        
             .brands-container {
                 width: 500px;
                 height: 140px;
@@ -1451,133 +1453,133 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
+        
         /* Mobile Large (576px - 767px) */
         @media (max-width: 767px) and (min-width: 576px) {
             .nav-links {
-                display: none;
+                display: none; /* Hide nav links on smaller screens */
             }
             
             .hero-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column layout */
                 text-align: center;
                 gap: 2rem;
             }
-
+        
             .hero-text h1 {
                 font-size: 2.5rem;
             }
             
             .hero-buttons {
-                justify-content: center;
+                justify-content: center; /* Center buttons */
             }
-
+        
             .contact-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column layout */
                 gap: 2rem;
             }
-
+        
             .services-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column layout */
                 gap: 1.5rem;
             }
-
+        
             .pricing-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column layout */
             }
-
+        
             .pricing-card.featured {
-                transform: none;
+                transform: none; /* Remove scale for featured card */
             }
-
+        
             .brands-carousel {
                 max-width: 500px;
                 gap: 0.5rem;
             }
-
+        
             .brands-container {
                 width: 400px;
                 height: 130px;
             }
-
+        
             .brand-item {
                 flex: 0 0 calc(20% - 0.6rem);
                 margin: 0 0.3rem;
             }
-
+        
             .brand-nav-btn {
                 width: 45px;
                 height: 45px;
                 font-size: 1.3rem;
             }
-
+        
             .smm-videos-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column layout */
                 gap: 1.5rem;
             }
-
+        
             .video-card {
                 margin-bottom: 1rem;
             }
-
+        
             .smm-cta {
                 padding: 2rem 1.5rem;
             }
-
+        
             .smm-cta h3 {
                 font-size: 1.5rem;
             }
-
+        
             .youtube-videos-grid {
                 gap: 1rem;
-                padding: 0 1rem;
+                padding: 0 1rem; /* Add padding for scrollable content */
             }
-
+        
             .youtube-card {
-                flex: 0 0 280px;
+                flex: 0 0 280px; /* Adjust width for scrollable cards */
             }
-
+        
             .campaign-header {
-                flex-direction: column;
+                flex-direction: column; /* Stack elements vertically */
                 text-align: center;
                 gap: 1.5rem;
             }
-
+        
             .results-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column layout */
                 gap: 1.5rem;
             }
-
+        
             .achievement-badges {
-                justify-content: center;
+                justify-content: center; /* Center badges */
             }
-
+        
             .personal-brand-cta {
                 padding: 2rem 1.5rem;
             }
-
+        
             .personal-brand-cta h3 {
                 font-size: 1.5rem;
             }
-
+        
             .budget-results-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr); /* Two columns for budget cards */
                 gap: 1rem;
             }
-
+        
             .target-cta {
                 padding: 2rem 1.5rem;
             }
-
+        
             .target-cta h3 {
                 font-size: 1.5rem;
             }
             
             .container {
-                padding: 0 1.5rem;
+                padding: 0 1.5rem; /* Adjust container padding */
             }
         }
-
+        
         /* Mobile Medium (480px - 575px) */
         @media (max-width: 575px) and (min-width: 480px) {
             .nav-links {
@@ -1600,17 +1602,17 @@
                 max-width: 400px;
                 gap: 0.3rem;
             }
-
+        
             .brands-container {
                 width: 300px;
                 height: 120px;
             }
-
+        
             .brand-item {
                 flex: 0 0 calc(20% - 0.4rem);
                 margin: 0 0.2rem;
             }
-
+        
             .brand-nav-btn {
                 width: 40px;
                 height: 40px;
@@ -1622,7 +1624,7 @@
             }
             
             .budget-results-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column for budget cards */
                 gap: 1rem;
             }
             
@@ -1630,7 +1632,7 @@
                 padding: 0 1rem;
             }
         }
-
+        
         /* Mobile Small (320px - 479px) */
         @media (max-width: 479px) {
             .nav-links {
@@ -1657,17 +1659,17 @@
                 max-width: 320px;
                 gap: 0.2rem;
             }
-
+        
             .brands-container {
                 width: 250px;
                 height: 100px;
             }
-
+        
             .brand-item {
                 flex: 0 0 calc(20% - 0.3rem);
                 margin: 0 0.15rem;
             }
-
+        
             .brand-nav-btn {
                 width: 35px;
                 height: 35px;
@@ -1679,7 +1681,7 @@
             }
             
             .budget-results-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column for budget cards */
                 gap: 0.8rem;
             }
             
@@ -1694,17 +1696,17 @@
             }
             
             .hero-buttons {
-                flex-direction: column;
+                flex-direction: column; /* Stack buttons vertically */
                 gap: 1rem;
             }
             
             .btn-primary,
             .btn-secondary {
-                width: 100%;
+                width: 100%; /* Full width buttons */
                 text-align: center;
             }
         }
-
+        
         /* Extra Small Mobile (320px and below) */
         @media (max-width: 320px) {
             .hero-text h1 {
@@ -1718,7 +1720,7 @@
             .brands-carousel {
                 max-width: 280px;
             }
-
+        
             .brands-container {
                 width: 220px;
                 height: 90px;
@@ -1732,7 +1734,15 @@
                 padding: 0 0.5rem;
             }
         }
+        
+        
+        
 
+
+
+
+
+        
         /* Animations */
         .fade-in {
             opacity: 0;
