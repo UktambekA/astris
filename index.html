@@ -1,2362 +1,432 @@
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astris Media - SMM va Digital Marketing</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="apple-touch-icon" href="images/logo.png">
-    <link rel="mask-icon" href="images/logo.png" color="#8B1538">
-    <link rel="shortcut icon" href="images/logo.png">
-    <meta name="msapplication-TileColor" content="#8B1538">
-    <meta name="theme-color" content="#8B1538">
+    <title>Astris Media</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Custom styles for Bordeaux and white theme */
         :root {
-            --bordo: #8B1538;
-            --bordo-light: #A91B47;
-            --cream: #F5F2E8;
-            --white: #FFFFFF;
-            --bg: #FEC1D7;
-            --text-dark: #2C2C2C;
-            --text-light: #666666;
-            --gradient: linear-gradient(135deg, #8B1538 0%, #A91B47 100%);
+            --bordeaux: #800020;
+            --white: #ffffff;
         }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg);
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(139, 21, 56, 0.1);
+        .navbar {
             transition: all 0.3s ease;
         }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
+        .navbar-menu {
+            display: none;
+        }
+        .navbar-menu.active {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
         }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--bordo);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .cta-button {
-            background: var(--gradient);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 21, 56, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.4);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 70%;
-            height: 200%;
-            background: var(--gradient);
-            border-radius: 50%;
-            opacity: 0.05;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 21, 56, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--bordo);
-            padding: 1rem 2rem;
-            border: 2px solid var(--bordo);
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: var(--bordo);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .hero-visual {
-            position: relative;
-        }
-
-        .hero-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(139, 21, 56, 0.1);
-            transform: rotate(5deg);
-            transition: all 0.3s ease;
-        }
-
-        .hero-card:hover {
-            transform: rotate(0deg) translateY(-10px);
-            box-shadow: 0 30px 60px rgba(139, 21, 56, 0.15);
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 6rem 0;
-            background: var(--white);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid var(--cream);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            left: 0;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.15);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 6rem 0;
-            background: var(--cream);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card.featured {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.2);
-        }
-
-        .pricing-card.featured::before {
-            content: 'Mashhur';
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: var(--gradient);
-            color: white;
-            padding: 5px 40px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transform: rotate(45deg);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.15);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-header h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--bordo);
-            margin-bottom: 0.5rem;
-        }
-
-        .price-unit {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .pricing-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--bordo);
-            font-weight: bold;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 0;
-            background: var(--white);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .contact-form {
-            background: var(--cream);
-            padding: 3rem;
-            border-radius: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid transparent;
-            border-radius: 10px;
-            background: white;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--bordo);
-            box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: var(--cream);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .contact-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(139, 21, 56, 0.1);
-        }
-
-        .contact-item.clickable {
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .contact-item.clickable:hover {
-            border-color: var(--bordo);
-            background: linear-gradient(135deg, var(--cream), rgba(139, 21, 56, 0.05));
-        }
-
-        .contact-item.clickable:active {
-            transform: translateX(10px) scale(0.98);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .contact-text {
-            flex: 1;
-        }
-
-        .contact-text h4 {
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-            color: var(--text-dark);
-        }
-
-        .contact-text p {
-            color: var(--text-light);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--cream);
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.6;
-        }
-
-        .footer-section a:hover {
-            color: var(--cream);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(139, 21, 56, 0.3);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #444;
-            color: #999;
-        }
-
-        /* Brands Carousel Section */
-        .brands {
-            padding: 4rem 0;
-            background: var(--white);
-            overflow: hidden;
-        }
-
-        .brands-carousel {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 3rem auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .brands-container {
-            position: relative;
-            width: 900px;
-            height: 180px;
-            overflow: hidden;
-            border-radius: 25px;
-            background: linear-gradient(135deg, rgba(139, 21, 56, 0.05) 0%, rgba(169, 27, 71, 0.05) 100%);
-            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.1);
-            border: 2px solid rgba(139, 21, 56, 0.1);
-        }
-
-        .brands-track {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            gap: 1.6rem;
-        }
-
-        .brand-item {
-            flex: 0 0 calc(20% - 1.28rem);
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 20px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.08);
-            position: relative;
-            overflow: hidden;
-            min-width: 0;
-        }
-
-        .brand-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(139, 21, 56, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .brand-item:hover::before {
-            left: 100%;
-        }
-
-        .brand-item:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.2);
-            border-color: var(--bordo);
-        }
-
-        .brand-item img {
-            max-width: 75%;
-            max-height: 75%;
-            object-fit: contain;
-            filter: grayscale(100%) brightness(0.8);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .brand-item:hover img {
-            filter: grayscale(0%) brightness(1);
-            transform: scale(1.1);
-        }
-
-        .brand-item:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.2);
-        }
-
-        .brand-item img {
-            max-width: 80%;
-            max-height: 80%;
-            object-fit: contain;
-            filter: grayscale(100%);
-            transition: all 0.3s ease;
-        }
-
-        .brand-item:hover img {
-            filter: grayscale(0%);
-        }
-
-        .brand-nav-btn {
-            width: 60px;
-            height: 60px;
-            border: none;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50%;
-            font-size: 1.8rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .brand-nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .brand-nav-btn:hover::before {
-            left: 100%;
-        }
-
-        .brand-nav-btn:hover {
-            transform: scale(1.15) translateY(-2px);
-            box-shadow: 0 12px 35px rgba(139, 21, 56, 0.4);
-        }
-
-        .brand-nav-btn:active {
-            transform: scale(0.95);
-        }
-
-        .brand-nav-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .brand-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: var(--bordo);
-            transform: scale(1.2);
-        }
-
-        .dot:hover {
-            background: var(--bordo-light);
-        }
-
-        /* SMM Services Section */
-        .smm-services {
-            padding: 6rem 0;
-            background: var(--cream);
-        }
-
-        .smm-videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .video-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid var(--cream);
-        }
-
-        .video-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.15);
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            background: #f8f9fa;
-            border-radius: 20px 20px 0 0;
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            display: block;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .video-info {
-            padding: 1.5rem;
-        }
-
-        .video-info h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .video-info p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .instagram-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
-            text-decoration: none;
-            padding: 0.75rem 1rem;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .instagram-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(220, 39, 67, 0.3);
-        }
-
-        .link-icon {
-            font-size: 1.2rem;
-        }
-
-        .smm-cta {
-            text-align: center;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
-            margin-top: 2rem;
-        }
-
-        .smm-cta h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .smm-cta p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Influencer Marketing Section */
-        .influencer-marketing {
-            padding: 6rem 0;
-            background: var(--white);
-        }
-
-        .campaign-overview {
-            margin-bottom: 4rem;
-        }
-
-        .campaign-card {
-            background: var(--cream);
-            padding: 3rem;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.1);
-            border: 2px solid rgba(139, 21, 56, 0.05);
-        }
-
-        .campaign-header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid rgba(139, 21, 56, 0.1);
-        }
-
-        .brand-logo {
-            background: white;
-            padding: 1rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.1);
-        }
-
-        .campaign-info h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .campaign-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .stat-item {
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--bordo);
-            box-shadow: 0 4px 15px rgba(139, 21, 56, 0.1);
-        }
-
-        .campaign-details h4 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .campaign-details ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .campaign-details li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .youtube-videos-grid {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            overflow-x: auto;
-            padding-bottom: 1rem;
-        }
-
-        .youtube-card {
-            flex: 0 0 350px;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid var(--cream);
-        }
-
-        .youtube-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid var(--cream);
-        }
-
-        .youtube-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.15);
-        }
-
-        .youtube-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(45deg, #ff0000 0%, #cc0000 100%);
-            color: white;
-            text-decoration: none;
-            padding: 0.75rem 1rem;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .youtube-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
-        }
-
-        .influencer-cta {
-            text-align: center;
-            background: var(--cream);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
-            margin-top: 2rem;
-        }
-
-        .influencer-cta h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .influencer-cta p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Personal Brand Section */
-        .personal-brand {
-            padding: 6rem 0;
-            background: var(--cream);
-        }
-
-        .brand-showcase {
-            margin-bottom: 4rem;
-        }
-
-        .brand-profile-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.1);
-            border: 2px solid rgba(139, 21, 56, 0.05);
-        }
-
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid rgba(139, 21, 56, 0.1);
-        }
-
-        .profile-avatar {
-            flex-shrink: 0;
-        }
-
-        .profile-info h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .profile-handle {
-            font-size: 1.1rem;
-            color: var(--bordo);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .badge {
-            background: linear-gradient(45deg, var(--bordo), var(--bordo-light));
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(139, 21, 56, 0.2);
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .result-card {
-            background: var(--cream);
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.15);
-            border-color: var(--bordo);
-        }
-
-        .result-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .result-content h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .result-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--bordo);
-            margin-bottom: 0.5rem;
-        }
-
-        .result-content p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .strategy-details {
-            margin-bottom: 2rem;
-        }
-
-        .strategy-details h4 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .strategy-details ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .strategy-details li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .profile-cta {
-            text-align: center;
-        }
-
-        .instagram-profile-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            min-width: 200px;
-        }
-
-        .instagram-profile-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(220, 39, 67, 0.3);
-        }
-
-        .personal-brand-cta {
-            text-align: center;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
-            margin-top: 2rem;
-        }
-
-        .personal-brand-cta h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .personal-brand-cta p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Target Advertising Section */
-        .target-advertising {
-            padding: 6rem 0;
-            background: var(--white);
-        }
-
-        .target-showcase {
-            margin-bottom: 4rem;
-        }
-
-        .target-campaign-card {
-            background: var(--cream);
-            padding: 3rem;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.1);
-            border: 2px solid rgba(139, 21, 56, 0.05);
-        }
-
-        .budget-results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .budget-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            box-shadow: 0 8px 25px rgba(139, 21, 56, 0.08);
-        }
-
-        .budget-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 21, 56, 0.15);
-            border-color: var(--bordo);
-        }
-
-        .budget-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .budget-content h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .budget-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--bordo);
-            margin-bottom: 0.5rem;
-        }
-
-        .budget-content p {
-            color: var(--text-light);
-            font-size: 0.85rem;
-        }
-
-        .roi-highlight {
-            margin-top: 2rem;
-        }
-
-        .roi-card {
-            background: linear-gradient(135deg, var(--bordo), var(--bordo-light));
-            color: white;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.2);
-        }
-
-        .roi-card h4 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .roi-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        .target-cta {
-            text-align: center;
-            background: var(--cream);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(139, 21, 56, 0.1);
-            margin-top: 2rem;
-        }
-
-        .target-cta h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .target-cta p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-
-        /* Responsive Design - Mobile First Approach */
-
-        /* Large Desktop (1400px+) */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 1400px;
-            }
-            
-            .hero-text h1 {
-                font-size: 4rem;
-            }
-            
-            .section-title h2 {
-                font-size: 3rem;
-            }
-        }
-        
-        /* Desktop (1200px - 1399px) */
-        @media (max-width: 1399px) and (min-width: 1200px) {
-            .brands-carousel {
-                max-width: 1000px;
-                gap: 1rem;
-            }
-        
-            .brands-container {
-                width: 700px;
-                height: 160px;
-            }
-        }
-        
-        /* Large Tablet (992px - 1199px) */
-        @media (max-width: 1199px) and (min-width: 992px) {
-            .brands-carousel {
-                max-width: 800px;
-                gap: 0.8rem;
-            }
-        
-            .brands-container {
-                width: 600px;
-                height: 150px;
-            }
-        
-            .brand-nav-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* Tablet (768px - 991px) */
-        @media (max-width: 991px) and (min-width: 768px) {
-            .nav-links {
-                gap: 1.5rem;
-            }
-            
-            .hero-content {
-                gap: 3rem;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr; /* Changed to single column */
-                gap: 3rem;
+        @media (max-width: 640px) {
+            .navbar-menu {
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
-            
-            .brands-carousel {
-                max-width: 600px;
-                gap: 0.5rem;
+            .navbar-menu a {
+                padding: 0.5rem 0;
             }
-        
-            .brands-container {
-                width: 500px;
-                height: 140px;
-            }
-            
-            .youtube-videos-grid {
-                gap: 1.5rem;
-            }
-            
-            .youtube-card {
-                flex: 0 0 320px;
-            }
-            
-            .budget-results-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* Mobile Large (576px - 767px) */
-        @media (max-width: 767px) and (min-width: 576px) {
-            .nav-links {
-                display: none; /* Hide nav links on smaller screens */
-            }
-            
-            .hero-content {
-                grid-template-columns: 1fr; /* Single column layout */
-                text-align: center;
-                gap: 2rem;
-            }
-        
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-buttons {
-                justify-content: center; /* Center buttons */
-            }
-        
-            .contact-content {
-                grid-template-columns: 1fr; /* Single column layout */
-                gap: 2rem;
-            }
-        
-            .services-grid {
-                grid-template-columns: 1fr; /* Single column layout */
-                gap: 1.5rem;
-            }
-        
-            .pricing-grid {
-                grid-template-columns: 1fr; /* Single column layout */
-            }
-        
-            .pricing-card.featured {
-                transform: none; /* Remove scale for featured card */
-            }
-        
-            .brands-carousel {
-                max-width: 500px;
-                gap: 0.5rem;
-            }
-        
-            .brands-container {
-                width: 400px;
-                height: 130px;
-            }
-        
-            .brand-item {
-                flex: 0 0 calc(20% - 0.6rem);
-                margin: 0 0.3rem;
-            }
-        
-            .brand-nav-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-        
-            .smm-videos-grid {
-                grid-template-columns: 1fr; /* Single column layout */
-                gap: 1.5rem;
-            }
-        
-            .video-card {
-                margin-bottom: 1rem;
-            }
-        
-            .smm-cta {
-                padding: 2rem 1.5rem;
-            }
-        
-            .smm-cta h3 {
-                font-size: 1.5rem;
-            }
-        
-            .youtube-videos-grid {
-                gap: 1rem;
-                padding: 0 1rem; /* Add padding for scrollable content */
-            }
-        
-            .youtube-card {
-                flex: 0 0 280px; /* Adjust width for scrollable cards */
-            }
-        
-            .campaign-header {
-                flex-direction: column; /* Stack elements vertically */
-                text-align: center;
-                gap: 1.5rem;
-            }
-        
-            .results-grid {
-                grid-template-columns: 1fr; /* Single column layout */
-                gap: 1.5rem;
-            }
-        
-            .achievement-badges {
-                justify-content: center; /* Center badges */
-            }
-        
-            .personal-brand-cta {
-                padding: 2rem 1.5rem;
-            }
-        
-            .personal-brand-cta h3 {
-                font-size: 1.5rem;
-            }
-        
-            .budget-results-grid {
-                grid-template-columns: repeat(2, 1fr); /* Two columns for budget cards */
-                gap: 1rem;
-            }
-        
-            .target-cta {
-                padding: 2rem 1.5rem;
-            }
-        
-            .target-cta h3 {
-                font-size: 1.5rem;
-            }
-            
-            .container {
-                padding: 0 1.5rem; /* Adjust container padding */
-            }
-        }
-        
-        /* Mobile Medium (480px - 575px) */
-        @media (max-width: 575px) and (min-width: 480px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-text p {
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .brands-carousel {
-                max-width: 400px;
-                gap: 0.3rem;
-            }
-        
-            .brands-container {
-                width: 300px;
-                height: 120px;
-            }
-        
-            .brand-item {
-                flex: 0 0 calc(20% - 0.4rem);
-                margin: 0 0.2rem;
-            }
-        
-            .brand-nav-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-            
-            .youtube-card {
-                flex: 0 0 250px;
-            }
-            
-            .budget-results-grid {
-                grid-template-columns: 1fr; /* Single column for budget cards */
-                gap: 1rem;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-        }
-        
-        /* Mobile Small (320px - 479px) */
-        @media (max-width: 479px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-text h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero-text p {
-                font-size: 0.9rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title p {
-                font-size: 1rem;
-            }
-            
-            .brands-carousel {
-                max-width: 320px;
-                gap: 0.2rem;
-            }
-        
-            .brands-container {
-                width: 250px;
-                height: 100px;
-            }
-        
-            .brand-item {
-                flex: 0 0 calc(20% - 0.3rem);
-                margin: 0 0.15rem;
-            }
-        
-            .brand-nav-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            
-            .youtube-card {
-                flex: 0 0 220px;
-            }
-            
-            .budget-results-grid {
-                grid-template-columns: 1fr; /* Single column for budget cards */
-                gap: 0.8rem;
-            }
-            
-            .campaign-card,
-            .brand-profile-card,
-            .target-campaign-card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .container {
-                padding: 0 0.8rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column; /* Stack buttons vertically */
-                gap: 1rem;
-            }
-            
-            .btn-primary,
-            .btn-secondary {
-                width: 100%; /* Full width buttons */
-                text-align: center;
-            }
         }
-        
-        /* Extra Small Mobile (320px and below) */
-        @media (max-width: 320px) {
-            .hero-text h1 {
-                font-size: 1.6rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.6rem;
-            }
-            
-            .brands-carousel {
-                max-width: 280px;
-            }
-        
-            .brands-container {
-                width: 220px;
-                height: 90px;
-            }
-            
-            .youtube-card {
-                flex: 0 0 200px;
-            }
-            
-            .container {
-                padding: 0 0.5rem;
-            }
+        .bg-bordeaux {
+            background-color: var(--bordeaux);
         }
-        
-        
-        
-
-
-
-
-
-        
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeIn 0.8s ease forwards;
+        .text-bordeaux {
+            color: var(--bordeaux);
         }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hover\:bg-bordeaux:hover {
+            background-color: #660018; /* Slightly darker Bordeaux for hover */
         }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease;
+        .hover\:text-bordeaux:hover {
+            color: #660018;
         }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .focus\:ring-bordeaux:focus {
+            --tw-ring-color: #660018;
         }
     </style>
 </head>
-
-<body>
+<body class="font-sans bg-white">
     <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">Astris Media</div>
-            <ul class="nav-links">
-                <li><a href="#home">Bosh sahifa</a></li>
-                <li><a href="#services">Xizmatlar</a></li>
-                <li><a href="#pricing">Narxlar</a></li>
-                <li><a href="#contact">Aloqa</a></li>
-            </ul>
-            <a href="#contact" class="cta-button">Buyurtma berish</a>
-        </nav>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-bordeaux">Astris Media</h1>
+            <button id="menu-toggle" class="sm:hidden text-bordeaux focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <nav class="navbar-menu hidden sm:flex space-x-4">
+                <a href="#home" class="text-gray-700 hover:text-bordeaux">Bosh sahifa</a>
+                <a href="#services" class="text-gray-700 hover:text-bordeaux">Xizmatlar</a>
+                <a href="#pricing" class="text-gray-700 hover:text-bordeaux">Narxlar</a>
+                <a href="#contact" class="text-gray-700 hover:text-bordeaux">Aloqa</a>
+            </nav>
+            <a href="#contact" class="hidden sm:block bg-bordeaux text-white px-4 py-2 rounded hover:bg-bordeaux">Buyurtma berish</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text fade-in">
-                <h1>Yorqin brandlar shu yerdan boshlanadi!</h1>
-                <p>Astris Media - sizning ishonchli hamkoringiz SMM, Target, Influencer Marketing va Digital Marketing
-                    sohasida. 2 yillik tajribaga ega professional jamoa bilan brendingizni muvaffaqiyatga olib boramiz.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
-                    <a href="#services" class="btn-secondary">Xizmatlar bilan tanishish</a>
-                </div>
+    <section id="home" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-bordeaux mb-4">Yorqin brandlar shu yerdan boshlanadi!</h2>
+            <p class="text-lg text-gray-600 mb-6">Astris Media - sizning ishonchli hamkoringiz SMM, Target, Influencer Marketing va Digital Marketing sohasida. 2 yillik tajribaga ega professional jamoa bilan brendingizni muvaffaqiyatga olib boramiz.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-bordeaux text-white px-6 py-3 rounded hover:bg-bordeaux">Bepul konsultatsiya</a>
+                <a href="#services" class="bg-gray-200 text-gray-800 px-6 py-3 rounded hover:bg-gray-300">Xizmatlar bilan tanishish</a>
             </div>
-            <div class="hero-visual fade-in">
-                <div class="hero-card">
-                    <div class="card-icon">🚀</div>
-                    <h3>Professional SMM</h3>
-                    <p>To'liq komanda bilan brendingizni strategik rivojlantirish</p>
+            <div class="mt-8">
+                <div class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
+                    <span class="text-4xl">🚀</span>
+                    <h3 class="text-xl font-semibold mt-2 text-bordeaux">Professional SMM</h3>
+                    <p class="text-gray-600">To'liq komanda bilan brendingizni strategik rivojlantirish</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>Bizning xizmatlarimiz</h2>
-                <p>Brendingizni rivojlantirish uchun barcha zarur xizmatlar bir joyda</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">📱</div>
-                    <h3>SMM Boshqaruv</h3>
-                    <p>Ijtimoiy tarmoqlarda brandni strategik rivojlantirish. Full komanda bilan professional yondoshish
-                        va keng qamrovli strategiya.</p>
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-bordeaux mb-8">Bizning xizmatlarimiz</h2>
+            <p class="text-center text-gray-600 mb-12">Brendingizni rivojlantirish uchun barcha zarur xizmatlar bir joyda</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-4xl">📱</span>
+                    <h3 class="text-xl font-semibold mt-2 text-bordeaux">SMM Boshqaruv</h3>
+                    <p class="text-gray-600">Ijtimoiy tarmoqlarda brandni strategik rivojlantirish. Full komanda bilan professional yondoshish va keng qamrovli strategiya.</p>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">🎯</div>
-                    <h3>Target Reklama</h3>
-                    <p>Ijtimoiy tarmoqlarda brendingizni aniq auditoriyaga yo'naltirib, samarali reklama qilish. 2
-                        yillik tajribaga ega targetologlar bilan.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-4xl">🎯</span>
+                    <h3 class="text-xl font-semibold mt-2 text-bordeaux">Target Reklama</h3>
+                    <p class="text-gray-600">Ijtimoiy tarmoqlarda brendingizni aniq auditoriyaga yo'naltirib, samarali reklama qilish.</p>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">👤</div>
-                    <h3>Shaxsiy Brend</h3>
-                    <p>Ijtimoiy tarmoqlarda imijingizni yaratish va strategik rivojlantirish. Full komanda bilan
-                        professional yondoshish.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-4xl">👤</span>
+                    <h3 class="text-xl font-semibold mt-2 text-bordeaux">Shaxsiy Brend</h3>
+                    <p class="text-gray-600">Ijtimoiy tarmoqlarda imijingizni yaratish va strategik rivojlantirish.</p>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">⭐</div>
-                    <h3>Influencer Marketing</h3>
-                    <p>Brandingizni liderlar bilan birga tanitish. Budjetdan kelib chiqqan holda eng samarali
-                        influyenserlar bilan hamkorlik.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-4xl">⭐</span>
+                    <h3 class="text-xl font-semibold mt-2 text-bordeaux">Influencer Marketing</h3>
+                    <p class="text-gray-600">Brandingizni liderlar bilan birga tanitish.</p>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">📋</div>
-                    <h3>Strategiya + Kontent Plan</h3>
-                    <p>Brandingiz poydevorini mustahkamlash uchun oylik SMM strategiya va shu asosida to'liq kontent
-                        plan yaratish.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-4xl">📋</span>
+                    <h3 class="text-xl font-semibold mt-2 text-bordeaux">Strategiya + Kontent Plan</h3>
+                    <p class="text-gray-600">Brandingiz poydevorini mustahkamlash uchun oylik SMM strategiya va kontent plan.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Brands Carousel Section -->
-    <section id="brands" class="brands">
-        <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>Bizning mijozlarimiz</h2>
-                <p>Ishonchli brendlar bizga ishonishadi</p>
+    <!-- Clients Section -->
+    <section id="clients" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-bordeaux mb-8">Bizning mijozlarimiz</h2>
+            <p class="text-center text-gray-600 mb-12">Ishonchli brendlar bizga ishonishadi</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <img src="client1.jpg" alt="Client 1" class="w-full h-24 object-contain">
+                <img src="client2.jpg" alt="Client 2" class="w-full h-24 object-contain">
+                <img src="client3.jpg" alt="Client 3" class="w-full h-24 object-contain">
+                <img src="client4.jpg" alt="Client 4" class="w-full h-24 object-contain">
+                <img src="client5.jpg" alt="Client 5" class="w-full h-24 object-contain">
+                <img src="client6.jpg" alt="Client 6" class="w-full h-24 object-contain">
+                <img src="client7.jpg" alt="Client 7" class="w-full h-24 object-contain">
+                <img src="client8.jpg" alt="Client 8" class="w-full h-24 object-contain">
             </div>
-            <div class="brands-carousel animate-on-scroll">
-                <div class="brands-container">
-                    <div class="brands-track" id="brandsTrack">
-                        <div class="brand-item" data-index="0">
-                            <img src="images/akay_city.png" alt="Akay City" loading="lazy">
-                        </div>
-                        <div class="brand-item" data-index="1">
-                            <img src="images/bosch.png" alt="Bosch" loading="lazy">
-                        </div>
-                        <div class="brand-item" data-index="2">
-                            <img src="images/coca_cola.png" alt="Coca Cola" loading="lazy">
-                        </div>
-                        <div class="brand-item" data-index="3">
-                            <img src="images/sariq.png" alt="Sariq" loading="lazy">
-                        </div>
-                        <div class="brand-item" data-index="4">
-                            <img src="images/iftah.png" alt="Iftah" loading="lazy">
-                        </div>
-                        <div class="brand-item" data-index="5">
-                            <img src="images/piona.png" alt="Piona" loading="lazy">
-                        </div>
-                        <div class="brand-item" data-index="6">
-                            <img src="images/sports.png" alt="Sports" loading="lazy">
-                        </div>
-                        <div class="brand-item" data-index="7">
-                            <img src="images/correct_doors.png" alt="Correct Doors" loading="lazy">
-                        </div>
-                        <div class="brand-item" data-index="8">
-                            <img src="images/abi.png" alt="ABI" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- SMM Services Section -->
-    <section id="smm-services" class="smm-services">
-        <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>SMM xizmati</h2>
-                <h5>Bizning SMM xizmatlarimiz natijalari</h5>
-                <h5>Akay City (1yil davomida)
-                    1-2 blokdagi xonadonlar to’liq sotildi
-                    3-blokdagi sotuv zonalari sotuvi yakunlandi
-                    60% xonadon sotildi</h5>
+    <!-- SMM Results Section -->
+    <section id="smm-results" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-bordeaux mb-8">SMM xizmati</h2>
+            <p class="text-center text-gray-600 mb-12">Bizning SMM xizmatlarimiz natijalari</p>
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold text-bordeaux">Akay City (1 yil davomida)</h3>
+                <ul class="list-disc pl-5 text-gray-600">
+                    <li>1-2 blokdagi xonadonlar to’liq sotildi</li>
+                    <li>3-blokdagi sotuv zonalari sotuvi yakunlandi</li>
+                    <li>60% xonadon sotildi</li>
+                </ul>
             </div>
-            <div class="smm-videos-grid animate-on-scroll">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.instagram.com/reel/C5iMMHVt51m/embed" width="100%" height="400"
-                            frameborder="0" scrolling="no" allowtransparency="true">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <a href="https://www.instagram.com/reel/C5iMMHVt51m/?igsh=MWRnOHVnMm05a3R1ZA==" target="_blank"
-                            class="instagram-link">
-                            <span>Instagram'da ko'rish</span>
-                            <span class="link-icon">📱</span>
-                        </a>
-                    </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="smm1.jpg" alt="SMM Result 1" class="w-full h-48 object-cover mb-4">
+                    <a href="#" class="text-bordeaux hover:text-bordeaux">Instagram'da ko'rish 📱</a>
                 </div>
-
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.instagram.com/reel/CxNvDIytNS3/embed" width="100%" height="400"
-                            frameborder="0" scrolling="no" allowtransparency="true">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <a href="https://www.instagram.com/reel/CxNvDIytNS3/?igsh=MWF4dzRwbDZxdXc2Mw==" target="_blank"
-                            class="instagram-link">
-                            <span>Instagram'da ko'rish</span>
-                            <span class="link-icon">📱</span>
-                        </a>
-                    </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="smm2.jpg" alt="SMM Result 2" class="w-full h-48 object-cover mb-4">
+                    <a href="#" class="text-bordeaux hover:text-bordeaux">Instagram'da ko'rish 📱</a>
                 </div>
-
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.instagram.com/reel/Cy1DUl7txdN/embed" width="100%" height="400"
-                            frameborder="0" scrolling="no" allowtransparency="true">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <a href="https://www.instagram.com/reel/Cy1DUl7txdN/?igsh=M3ozaWh1a3dmc3E5" target="_blank"
-                            class="instagram-link">
-                            <span>Instagram'da ko'rish</span>
-                            <span class="link-icon">📱</span>
-                        </a>
-                    </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="smm3.jpg" alt="SMM Result 3" class="w-full h-48 object-cover mb-4">
+                    <a href="#" class="text-bordeaux hover:text-bordeaux">Instagram'da ko'rish 📱</a>
                 </div>
             </div>
-            <div class="smm-cta animate-on-scroll">
-                <h3>O'z brendingizni ham shunday rivojlantiring!</h3>
-                <p>Professional SMM xizmatlarimiz bilan brendingizni yangi darajaga olib chiqing</p>
-                <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
+            <div class="text-center mt-8">
+                <h3 class="text-xl font-semibold text-bordeaux mb-4">O'z brendingizni ham shunday rivojlantiring!</h3>
+                <a href="#contact" class="bg-bordeaux text-white px-6 py-3 rounded hover:bg-bordeaux">Bepul konsultatsiya</a>
             </div>
         </div>
     </section>
 
     <!-- Influencer Marketing Section -->
-    <section id="influencer-marketing" class="influencer-marketing">
-        <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>Influencer Marketing</h2>
-                <p>Coca Cola bilan hamkorlikda professional kampaniyalar</p>
-            </div>
-            
-            <div class="campaign-overview animate-on-scroll">
-                <div class="campaign-card">
-                    <div class="campaign-header">
-                        <div class="brand-logo">
-                            <img src="images/coca_cola.png" alt="Coca Cola" style="width: 80px; height: 80px; object-fit: contain;">
-                        </div>
-                        <div class="campaign-info">
-                            <h3>Coca Cola Influencer Marketing</h3>
-                            <p class="campaign-stats">
-                                <span class="stat-item">🎯 2 ta kampaniya</span>
-                                <span class="stat-item">📅 Yangi yil va bahoriy bayramlar</span>
-                                <span class="stat-item">👥 YouTube blogerlar</span>
-                                <span class="stat-item">📊 Million ko'rishlar</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="campaign-details">
-                        <h4>Kampaniya tafsilotlari:</h4>
-                        <ul>
-                            <li>✅ Budjetdan kelib chiqqan holda YouTube blogerlarni tanlash</li>
-                            <li>✅ Professional ssenariy tayyorlash</li>
-                            <li>✅ Rekvizitlar yig'ish va tayyorlash</li>
-                            <li>✅ Yuqori sifatli video ishlab chiqarish</li>
-                            <li>✅ Talabdan kelib chiqqan holda million ko'rishlar soniga erishish</li>
-                        </ul>
-                    </div>
+    <section id="influencer" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-bordeaux mb-8">Influencer Marketing</h2>
+            <p class="text-center text-gray-600 mb-12">Coca Cola bilan hamkorlikda professional kampaniyalar</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="coca1.jpg" alt="Coca Cola Campaign" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-semibold text-bordeaux">Coca Cola Influencer Marketing</h3>
+                    <ul class="list-disc pl-5 text-gray-600">
+                        <li>🎯 2 ta kampaniya</li>
+                        <li>📅 Yangi yil va bahoriy bayramlar</li>
+                        <li>👥 YouTube blogerlar</li>
+                        <li>📊 Million ko'rishlar</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-bordeaux">Kampaniya tafsilotlari:</h3>
+                    <ul class="list-disc pl-5 text-gray-600">
+                        <li>✅ Budjetdan kelib chiqqan holda YouTube blogerlarni tanlash</li>
+                        <li>✅ Professional ssenariy tayyorlash</li>
+                        <li>✅ Rekvizitlar yig'ish va tayyorlash</li>
+                        <li>✅ Yuqori sifatli video ishlab chiqarish</li>
+                        <li>✅ Talabdan kelib chiqqan holda million ko'rishlar soniga erishish</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="youtube-videos-grid animate-on-scroll">
-                <div class="video-card youtube-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/6ASGfLwQHd0" width="100%" height="300"
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <p>Yangi yil kampaniyasi</p>
-                        <a href="https://youtube.com/shorts/6ASGfLwQHd0?si=ODQwWeIFgnKGno_8" target="_blank"
-                            class="youtube-link">
-                            <span>YouTube'da ko'rish</span>
-                            <span class="link-icon">▶️</span>
-                        </a>
-                    </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="campaign1.jpg" alt="Campaign 1" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-lg font-semibold text-bordeaux">Yangi yil kampaniyasi</h3>
+                    <a href="#" class="text-bordeaux hover:text-bordeaux">YouTube'da ko'rish ▶️</a>
                 </div>
-
-                <div class="video-card youtube-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/EhEkcGVc1iE" width="100%" height="300"
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <p>Yangi yil kampaniyasi</p>
-                        <a href="https://youtu.be/EhEkcGVc1iE?si=fe-SlSoQ7LGzotlJ" target="_blank"
-                            class="youtube-link">
-                            <span>YouTube'da ko'rish</span>
-                            <span class="link-icon">▶️</span>
-                        </a>
-                    </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="campaign2.jpg" alt="Campaign 2" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-lg font-semibold text-bordeaux">Yangi yil kampaniyasi</h3>
+                    <a href="#" class="text-bordeaux hover:text-bordeaux">YouTube'da ko'rish ▶️</a>
                 </div>
-
-                <div class="video-card youtube-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/FFyEgz54ooU" width="100%" height="300"
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <p>Bahoriy bayramlar kampaniyasi</p>
-                        <a href="https://youtube.com/shorts/FFyEgz54ooU?si=Q-qWjRx7hHx3g_bK" target="_blank"
-                            class="youtube-link">
-                            <span>YouTube'da ko'rish</span>
-                            <span class="link-icon">▶️</span>
-                        </a>
-                    </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="campaign3.jpg" alt="Campaign 3" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-lg font-semibold text-bordeaux">Bahoriy bayramlar kampaniyasi</h3>
+                    <a href="#" class="text-bordeaux hover:text-bordeaux">YouTube'da ko'rish ▶️</a>
                 </div>
-
-                <div class="video-card youtube-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/BSWdxq-6L-Q" width="100%" height="300"
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <p>Bahoriy bayramlar kampaniyasi</p>
-                        <a href="https://youtube.com/shorts/BSWdxq-6L-Q?si=riDjE8jREzGMKwFn" target="_blank"
-                            class="youtube-link">
-                            <span>YouTube'da ko'rish</span>
-                            <span class="link-icon">▶️</span>
-                        </a>
-                    </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="campaign4.jpg" alt="Campaign 4" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-lg font-semibold text-bordeaux">Bahoriy bayramlar kampaniyasi</h3>
+                    <a href="#" class="text-bordeaux hover:text-bordeaux">YouTube'da ko'rish ▶️</a>
                 </div>
             </div>
-
-            <div class="influencer-cta animate-on-scroll">
-                <h3>O'z brendingiz uchun ham shunday kampaniyalar!</h3>
-                <p>Professional influencer marketing xizmatlarimiz bilan brendingizni millionlar ko'rishiga olib chiqing</p>
-                <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
+            <div class="text-center mt-8">
+                <h3 class="text-xl font-semibold text-bordeaux mb-4">O'z brendingiz uchun ham shunday kampaniyalar!</h3>
+                <a href="#contact" class="bg-bordeaux text-white px-6 py-3 rounded hover:bg-bordeaux">Bepul konsult1atsiya</a>
             </div>
         </div>
     </section>
 
-    <!-- Personal Brand Section -->
-    <section id="personal-brand" class="personal-brand">
-        <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>Shaxsiy Brand</h2>
-                <p>Professional shaxsiy brending natijalari</p>
+    <!-- Personal Branding Section -->
+    <section id="personal-brand" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-bordeaux mb-8">Shaxsiy Brand</h2>
+            <p class="text-center text-gray-600 mb-12">Professional shaxsiy brending natijalari</p>
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <img src="alimova.jpg" alt="Alimova Mavjuda" class="w-full h-48 object-cover mb-4">
+                <h3 class="text-xl font-semibold text-bordeaux">Alimova Mavjuda (@alimova_mavjuda)</h3>
+                <ul class="list-disc pl-5 text-gray-600">
+                    <li>🎯 Targetsiz natija</li>
+                    <li>📈 1 oy ichida</li>
+                    <li>🔥 Viral natija</li>
+                </ul>
             </div>
-            
-            <div class="brand-showcase animate-on-scroll">
-                <div class="brand-profile-card">
-                    <div class="profile-header">
-                        <div class="profile-avatar">
-                        </div>
-                        <div class="profile-info">
-                            <h3>Alimova Mavjuda</h3>
-                            <p class="profile-handle">@alimova_mavjuda</p>
-                            <div class="achievement-badges">
-                                <span class="badge">🎯 Targetsiz natija</span>
-                                <span class="badge">📈 1 oy ichida</span>
-                                <span class="badge">🔥 Viral natija</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="results-grid">
-                        <div class="result-card">
-                            <div class="result-icon">👥</div>
-                            <div class="result-content">
-                                <h4>Obunachilar</h4>
-                                <div class="result-number">9,000+</div>
-                                <p>1 oyda targetsiz erishilgan</p>
-                            </div>
-                        </div>
-                        
-                        <div class="result-card">
-                            <div class="result-icon">📊</div>
-                            <div class="result-content">
-                                <h4>Qamrov</h4>
-                                <div class="result-number">2M+</div>
-                                <p>900-800 mingdan oshib ketdi</p>
-                            </div>
-                        </div>
-                        
-                        <div class="result-card">
-                            <div class="result-icon">⚡</div>
-                            <div class="result-content">
-                                <h4>O'sish</h4>
-                                <div class="result-number">120%+</div>
-                                <p>Qamrov o'sishi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="profile-cta">
-                        <a href="https://www.instagram.com/alimova_mavjuda?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="instagram-profile-link">
-                            <span>Instagram profili</span>
-                            <span class="link-icon">📱</span>
-                        </a>
-                    </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <span class="text-4xl">👥</span>
+                    <h3 class="text-lg font-semibold text-bordeaux">Obunachilar</h3>
+                    <p class="text-gray-600">9,000+ (1 oyda targetsiz erishilgan)</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <span class="text-4xl">📊</span>
+                    <h3 class="text-lg font-semibold text-bordeaux">Qamrov</h3>
+                    <p class="text-gray-600">2M+ (900-800 mingdan oshib ketdi)</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <span class="text-4xl">⚡</span>
+                    <h3 class="text-lg font-semibold text-bordeaux">O'sish</h3>
+                    <p class="text-gray-600">120%+ (Qamrov o'sishi)</p>
                 </div>
             </div>
-
-            <div class="personal-brand-cta animate-on-scroll">
-                <h3>O'z shaxsiy brendingizni ham shunday rivojlantiring!</h3>
-                <p>Professional shaxsiy brending xizmatlarimiz bilan Instagram'da millionlar ko'rishiga olib chiqing</p>
-                <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
+            <div class="text-center">
+                <a href="#" class="text-bordeaux hover:text-bordeaux">Instagram profili 📱</a>
+            </div>
+            <div class="text-center mt-8">
+                <h3 class="text-xl font-semibold text-bordeaux mb-4">O'z shaxsiy brendingizni ham shunday rivojlantiring!</h3>
+                <a href="#contact" class="bg-bordeaux text-white px-6 py-3 rounded hover:bg-bordeaux">Bepul konsultatsiya</a>
             </div>
         </div>
     </section>
 
     <!-- Target Advertising Section -->
-    <section id="target-advertising" class="target-advertising">
-        <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>Target Reklama</h2>
-                <p>Professional target reklama kampaniyalari natijalari</p>
+    <section id="target-ad" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-bordeaux mb-8">Target Reklama</h2>
+            <p class="text-center text-gray-600 mb-12">Professional target reklama kampaniyalari natijalari</p>
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <img src="piona.jpg" alt="Piona Shop" class="w-full h-48 object-cover mb-4">
+                <h3 class="text-xl font-semibold text-bordeaux">Piona Shop Target Kampaniyasi</h3>
+                <ul class="list-disc pl-5 text-gray-600">
+                    <li>🎯 6 ta kompaniya</li>
+                    <li>⏰ Faqat 1 kundan</li>
+                    <li>💰 19$ umumiy harajat</li>
+                    <li>🔥 Barcha sumkalar sotildi</li>
+                </ul>
             </div>
-            
-            <div class="target-showcase animate-on-scroll">
-                <div class="target-campaign-card">
-                    <div class="campaign-header">
-                        <div class="brand-logo">
-                            <img src="images/piona.png" alt="Piona Shop" style="width: 80px; height: 80px; object-fit: contain;">
-                        </div>
-                        <div class="campaign-info">
-                            <h3>Piona Shop Target Kampaniyasi</h3>
-                            <p class="campaign-stats">
-                                <span class="stat-item">🎯 6 ta kompaniya</span>
-                                <span class="stat-item">⏰Faqat 1 kundan</span>
-                                <span class="stat-item">💰 19$ umumiy harajat</span>
-                                <span class="stat-item">🔥 Barcha sumkalar sotildi</span>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="budget-results-grid">
-                        <div class="budget-card">
-                            <div class="budget-icon">💵</div>
-                            <div class="budget-content">
-                                <h4>Kunlik Budjet</h4>
-                                <div class="budget-number">$5</div>
-                                <p>Har bir kampaniya uchun</p>
-                            </div>
-                        </div>
-                        
-                        <div class="budget-card">
-                            <div class="budget-icon">📊</div>
-                            <div class="budget-content">
-                                <h4>Kampaniyalar</h4>
-                                <div class="budget-number">6</div>
-                                <p>Faqat 1 kundan</p>
-                            </div>
-                        </div>
-                        
-                        <div class="budget-card">
-                            <div class="budget-icon">💸</div>
-                            <div class="budget-content">
-                                <h4>Umumiy Harajat</h4>
-                                <div class="budget-number">$19</div>
-                                <p>Barcha kampaniyalar uchun</p>
-                            </div>
-                        </div>
-                        
-                        <div class="budget-card">
-                            <div class="budget-icon">🛍️</div>
-                            <div class="budget-content">
-                                <h4>Natija</h4>
-                                <div class="budget-number">100%</div>
-                                <p>Barcha sumkalar sotildi</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="campaign-details">
-                        <h4>Kampaniya tafsilotlari:</h4>
-                        <ul>
-                            <li>✅ Kunlik budjet 5$ dan boshlangan</li>
-                            <li>✅ 6 ta alohida target kampaniyasi</li>
-                            <li>✅ Faqat 1 kun davomida ishlagan</li>
-                            <li>✅ Umumiy harajat atigi 19$</li>
-                            <li>✅ Do'kondagi barcha sumkalar sotilgan</li>
-                            <li>✅ Yuqori ROI va samarali natija</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="roi-highlight">
-                        <div class="roi-card">
-                            <h4>🎯 ROI Natijasi</h4>
-                            <p>19$ harajat evaziga do'kondagi barcha mahsulotlar sotildi. Bu professional target reklama strategiyasining ajoyib natijasi!</p>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <span class="text-4xl">💵</span>
+                    <h3 class="text-lg font-semibold text-bordeaux">Kunlik Budjet</h3>
+                    <p class="text-gray-600">$5 (Har bir kampaniya uchun)</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <span class="text-4xl">📊</span>
+                    <h3 class="text-lg font-semibold text-bordeaux">Kampaniyalar</h3>
+                    <p class="text-gray-600">6 (Faqat 1 kundan)</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <span class="text-4xl">💸</span>
+                    <h3 class="text-lg font-semibold text-bordeaux">Umumiy Harajat</h3>
+                    <p class="text-gray-600">$19 (Barcha kampaniyalar uchun)</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <span class="text-4xl">🛍️</span>
+                    <h3 class="text-lg font-semibold text-bordeaux">Natija</h3>
+                    <p class="text-gray-600">100% (Barcha sumkalar sotildi)</p>
                 </div>
             </div>
-
-            <div class="target-cta animate-on-scroll">
-                <h3>O'z biznesingiz uchun ham shunday samarali target reklama!</h3>
-                <p>Professional target reklama xizmatlarimiz bilan minimal budjetda maksimal natija oling</p>
-                <a href="#contact" class="btn-primary">Bepul konsultatsiya</a>
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold text-bordeaux">Kampaniya tafsilotlari:</h3>
+                <ul class="list-disc pl-5 text-gray-600">
+                    <li>✅ Kunlik budjet 5$ dan boshlangan</li>
+                    <li>✅ 6 ta alohida target kampaniyasi</li>
+                    <li>✅ Faqat 1 kun davomida ishlagan</li>
+                    <li>✅ Umumiy harajat atigi 19$</li>
+                    <li>✅ Do'kondagi barcha sumkalar sotilgan</li>
+                    <li>✅ Yuqori ROI va samarali natija</li>
+                </ul>
+            </div>
+            <div class="text-center">
+                <h3 class="text-xl font-semibold text-bordeaux mb-4">O'z biznesingiz uchun ham shunday samarali target reklama!</h3>
+                <a href="#contact" class="bg-bordeaux text-white px-6 py-3 rounded hover:bg-bordeaux">Bepul konsultatsiya</a>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>Xizmatlar narxlari</h2>
-                <p>Har bir biznes uchun mos narxlar va paketlar</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card animate-on-scroll">
-                    <div class="pricing-header">
-                        <h3>Target Reklama</h3>
-                        <div class="price">$150</div>
-                        <div class="price-unit">oyiga</div>
-                    </div>
-                    <ul class="pricing-features">
+    <section id="pricing" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-bordeaux mb-8">Xizmatlar narxlari</h2>
+            <p class="text-center text-gray-600 mb-12">Har bir biznes uchun mos narxlar va paketlar</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-xl font-semibold text-bordeaux">Target Reklama</h3>
+                    <p class="text-2xl font-bold text-bordeaux">$150 <span class="text-sm">oyiga</span></p>
+                    <ul class="list-disc pl-5 text-gray-600 text-left my-4">
                         <li>2 yillik tajribaga ega targetolog</li>
                         <li>Aniq auditoriya tahlili</li>
                         <li>Samarali reklama kampaniyalari</li>
                         <li>Oylik hisobot</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Tanlash</a>
+                    <a href="#contact" class="bg-bordeaux text-white px-6 py-3 rounded hover:bg-bordeaux">Tanlash</a>
                 </div>
-
-                <div class="pricing-card featured animate-on-scroll">
-                    <div class="pricing-header">
-                        <h3>SMM Boshqaruv</h3>
-                        <div class="price">$800-1200</div>
-                        <div class="price-unit">oyiga</div>
-                    </div>
-                    <ul class="pricing-features">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-xl font-semibold text-bordeaux">SMM Boshqaruv</h3>
+                    <p class="text-2xl font-bold text-bordeaux">$800-1200 <span class="text-sm">oyiga</span></p>
+                    <ul class="list-disc pl-5 text-gray-600 text-left my-4">
                         <li>To'liq mas'uliyat va komanda</li>
                         <li>Strategik rejalashtirish</li>
                         <li>Kontent yaratish</li>
                         <li>Kommunity management</li>
                         <li>Tahlil va hisobotlar</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Tanlash</a>
+                    <a href="#contact" class="bg-bordeaux text-white px-6 py-3 rounded hover:bg-bordeaux">Tanlash</a>
                 </div>
-
-                <div class="pricing-card animate-on-scroll">
-                    <div class="pricing-header">
-                        <h3>Shaxsiy Brend</h3>
-                        <div class="price">$500-1000</div>
-                        <div class="price-unit">oyiga</div>
-                    </div>
-                    <ul class="pricing-features">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-xl font-semibold text-bordeaux">Shaxsiy Brend</h3>
+                    <p class="text-2xl font-bold text-bordeaux">$500-1000 <span class="text-sm">oyiga</span></p>
+                    <ul class="list-disc pl-5 text-gray-600 text-left my-4">
                         <li>Shaxsiy imij yaratish</li>
                         <li>Professional fotosurat</li>
                         <li>Kontent strategiya</li>
                         <li>SMM boshqaruv</li>
                     </ul>
-                    <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">Tanlash</a>
+                    <a href="#contact" class="bg-bordeaux text-white px-6 py-3 rounded hover:bg-bordeaux">Tanlash</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>Biz bilan bog'laning</h2>
-                <p>Bepul konsultatsiya uchun hoziroq murojaat qiling</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-form animate-on-scroll">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Ismingiz</label>
-                            <input type="text" id="name" name="name" required>
+    <section id="contact" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-bordeaux mb-8">Biz bilan bog'laning</h2>
+            <p class="text-center text-gray-600 mb-12">Bepul konsultatsiya uchun hoziroq murojaat qiling</p>
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="flex-1 bg-white p-6 rounded-lg shadow-md">
+                    <div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Ismingiz</label>
+                            <input type="text" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-bordeaux" placeholder="Ismingiz">
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Telefon raqam</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+998 90 123 45 67" required>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Telefon raqam</label>
+                            <input type="tel" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-bordeaux" placeholder="Telefon raqam">
                         </div>
-                        <div class="form-group">
-                            <label for="service">Xizmat turi</label>
-                            <select id="service" name="service" required>
-                                <option value="">Xizmat turini tanlang</option>
-                                <option value="smm">SMM Boshqaruv</option>
-                                <option value="target">Target Reklama</option>
-                                <option value="influencer">Influencer Marketing</option>
-                                <option value="brand">Shaxsiy Brend</option>
-                                <option value="content">Strategiya + Kontent Plan</option>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Xizmat turi</label>
+                            <select class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-bordeaux">
+                                <option>Xizmat turini tanlang</option>
+                                <option>SMM Boshqaruv</option>
+                                <option>Target Reklama</option>
+                                <option>Influencer Marketing</option>
+                                <option>Shaxsiy Brend</option>
+                                <option>Strategiya + Kontent Plan</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Qo'shimcha ma'lumot</label>
-                            <textarea id="message" name="message"
-                                placeholder="Biznesingiz haqida qisqacha yozib qoldiring. Qanday natija xohlaysiz? Qaysi ijtimoiy tarmoqlar?"></textarea>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Qo'shimcha ma'lumot</label>
+                            <textarea class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-bordeaux" rows="4" placeholder="Qo'shimcha ma'lumot"></textarea>
                         </div>
-                        <button type="submit" class="btn-primary" style="width: 100%;">Buyurtma yuborish</button>
-                    </form>
+                        <button class="w-full bg-bordeaux text-white px-6 py-3 rounded hover:bg-bordeaux">Buyurtma yuborish</button>
+                    </div>
                 </div>
-                <div class="contact-info animate-on-scroll">
-                    <h3>Biz bilan bog'laning</h3>
-                    <a href="tel:+998500786258" class="contact-item clickable">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-text">
-                            <h4>Telefon</h4>
-                            <p>+998 50 078 62 58</p>
+                <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-bordeaux mb-4">Biz bilan bog'laning</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-2">📞</span>
+                            <p><strong>Telefon:</strong> +998 50 078 62 58</p>
                         </div>
-                    </a>
-                    <a href="mailto:astrismedia1@gmail.com" class="contact-item clickable">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <p>astrismedia1@gmail.com</p>
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-2">✉️</span>
+                            <p><strong>Email:</strong> astrismedia1@gmail.com</p>
                         </div>
-                    </a>
-                    <a href="https://t.me/astrismedia" target="_blank" class="contact-item clickable">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-text">
-                            <h4>Telegram</h4>
-                            <p>@astrismedia</p>
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-2">📍</span>
+                            <p><strong>Telegram:</strong> @astrismedia</p>
                         </div>
-                    </a>
-                    <a href="https://www.instagram.com/astris_media" target="_blank" class="contact-item clickable">
-                        <div class="contact-icon">📷</div>
-                        <div class="contact-text">
-                            <h4>Instagram</h4>
-                            <p>@astris_media</p>
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-2">📷</span>
+                            <p><strong>Instagram:</strong> @astris_media</p>
                         </div>
-                    </a>
-                    <div class="social-links">
-                        <a href="https://t.me/astrismedia" class="social-link">📱</a>
-                        <a href="https://www.instagram.com/astris_media" class="social-link">📷</a>
                     </div>
                 </div>
             </div>
@@ -2364,433 +434,42 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Astris Media</h3>
-                    <p>Professional SMM va Digital Marketing xizmatlari. Brendingizni yangi darajaga olib chiqish uchun
-                        bizning tajribali jamoa bilan ishlang.</p>
-                    <div class="social-links">
-                        <a href="https://t.me/astrismedia" class="social-link">📱</a>
-                        <a href="https://www.instagram.com/astris_media" class="social-link">📷</a>
-                    </div>
+    <footer class="bg-bordeaux text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Astris Media</h3>
+                    <p class="text-gray-200">Professional SMM va Digital Marketing xizmatlari. Brendingizni yangi darajaga olib chiqish uchun bizning tajribali jamoa bilan ishlang.</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Xizmatlar</h3>
-                    <p><a href="#services">SMM Boshqaruv</a></p>
-                    <p><a href="#services">Target Reklama</a></p>
-                    <p><a href="#services">Influencer Marketing</a></p>
-                    <p><a href="#services">Shaxsiy Brend</a></p>
-                    <p><a href="#services">Strategiya + Kontent Plan</a></p>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Xizmatlar</h3>
+                    <ul class="text-gray-200 space-y-2">
+                        <li><a href="#services" class="hover:text-white">SMM Boshqaruv</a></li>
+                        <li><a href="#services" class="hover:text-white">Target Reklama</a></li>
+                        <li><a href="#services" class="hover:text-white">Influencer Marketing</a></li>
+                        <li><a href="#services" class="hover:text-white">Shaxsiy Brend</a></li>
+                        <li><a href="#services" class="hover:text-white">Strategiya + Kontent Plan</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Aloqa</h3>
-                    <p>📞 +998 50 078 62 58</p>
-                    <p>✉️ astrismedia1@gmail.com</p>
-                    <p>📱 @astrismedia</p>
-                    <p>📷 @astris_media</p>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Aloqa</h3>
+                    <ul class="text-gray-200 space-y-2">
+                        <li>📞 +998 50 078 62 58</li>
+                        <li>✉️ astrismedia1@gmail.com</li>
+                        <li>📱 @astrismedia</li>
+                        <li>📷 @astris_media</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Astris Media. Barcha huquqlar himoyalangan.</p>
-            </div>
+            <p class="text-center text-gray-200 mt-8">© 2025 Astris Media. Barcha huquqlar himoyalangan.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault()
-                const target = document.querySelector(this.getAttribute('href'))
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    })
-                }
-            })
-        })
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header')
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)'
-                header.style.backdropFilter = 'blur(15px)'
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)'
-                header.style.backdropFilter = 'blur(10px)'
-            }
-        })
-
-        // Animate on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        }
-
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible')
-                }
-            })
-        }, observerOptions)
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el)
-        })
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault()
-
-            const formData = new FormData(this)
-            const data = Object.fromEntries(formData)
-
-            // Show success message
-            const submitBtn = this.querySelector('button[type="submit"]')
-            const originalText = submitBtn.textContent
-
-            submitBtn.textContent = 'Yuborilmoqda...'
-            submitBtn.disabled = true
-
-            // Send data to Telegram bot
-            sendToTelegram(data)
-                .then(() => {
-                    submitBtn.textContent = 'Muvaffaqiyatli yuborildi! ✅'
-                    submitBtn.style.background = '#28a745'
-
-                    // Show success popup
-                    showSuccessPopup(data)
-
-                    // Reset form after 3 seconds
-                    setTimeout(() => {
-                        this.reset()
-                        submitBtn.textContent = originalText
-                        submitBtn.disabled = false
-                        submitBtn.style.background = ''
-                    }, 3000)
-                })
-                .catch((error) => {
-                    console.error('Error sending to Telegram:', error)
-                    submitBtn.textContent = 'Xatolik yuz berdi! ❌'
-                    submitBtn.style.background = '#dc3545'
-
-                    // Reset button after 3 seconds
-                    setTimeout(() => {
-                        submitBtn.textContent = originalText
-                        submitBtn.disabled = false
-                        submitBtn.style.background = ''
-                    }, 3000)
-                })
-        })
-
-        // Function to send data to Telegram bot
-        async function sendToTelegram(data) {
-            const TOKEN = "7890497579:AAEccjVmmlMdfac3nC6V0tMB-PApFGn9ydo"
-            const ADMIN_IDS = [7592352824]
-
-            const message = `
-🆕 Yangi buyurtma!
-
-👤 Mijoz ma'lumotlari:
-• Ism: ${data.name}
-• Telefon: ${data.phone}
-• Xizmat: ${getServiceName(data.service)}
-• Qo'shimcha ma'lumot: ${data.message || 'Kiritilmagan'}
-
-📅 Sana: ${new Date().toLocaleString('uz-UZ')}
-🌐 IP: ${await getClientIP()}
-            `.trim()
-
-            // Send to all admin IDs
-            const promises = ADMIN_IDS.map(adminId => {
-                return fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        chat_id: adminId,
-                        text: message,
-                        parse_mode: 'HTML'
-                    })
-                })
-            })
-
-            return Promise.all(promises)
-        }
-
-        // Function to get client IP (using a free service)
-        async function getClientIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json')
-                const data = await response.json()
-                return data.ip
-            } catch (error) {
-                return 'Noma\'lum'
-            }
-        }
-
-        // Success popup
-        function showSuccessPopup(data) {
-            const popup = document.createElement('div')
-            popup.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: white;
-                padding: 2rem;
-                border-radius: 20px;
-                box-shadow: 0 20px 60px rgba(139, 21, 56, 0.3);
-                z-index: 10000;
-                max-width: 500px;
-                width: 90%;
-                text-align: center;
-                animation: popupShow 0.3s ease;
-            `
-
-            popup.innerHTML = `
-                <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
-                <h3 style="color: var(--bordo); margin-bottom: 1rem;">Buyurtmangiz qabul qilindi!</h3>
-                <p style="color: var(--text-light); margin-bottom: 2rem;">
-                    <strong>${data.name}</strong>, tez orada operatorlarimiz siz bilan bog'lanishadi. 
-                    Sizning so'rovingiz: <strong>${getServiceName(data.service)}</strong>
-                </p>
-                <button onclick="this.parentElement.remove(); document.querySelector('.popup-overlay').remove();" 
-                        style="background: var(--gradient); color: white; border: none; padding: 0.75rem 2rem; border-radius: 50px; cursor: pointer;">
-                    Yopish
-                </button>
-            `
-
-            const overlay = document.createElement('div')
-            overlay.className = 'popup-overlay'
-            overlay.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 9999;
-                animation: overlayShow 0.3s ease;
-            `
-
-            const style = document.createElement('style')
-            style.textContent = `
-                @keyframes popupShow {
-                    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-                    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-                }
-                @keyframes overlayShow {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-            `
-
-            document.head.appendChild(style)
-            document.body.appendChild(overlay)
-            document.body.appendChild(popup)
-
-            // Auto close after 10 seconds
-            setTimeout(() => {
-                if (popup.parentElement) {
-                    popup.remove()
-                    overlay.remove()
-                    style.remove()
-                }
-            }, 10000)
-        }
-
-        function getServiceName(service) {
-            const services = {
-                'smm': 'SMM Boshqaruv',
-                'target': 'Target Reklama',
-                'influencer': 'Influencer Marketing',
-                'brand': 'Shaxsiy Brend',
-                'content': 'Strategiya + Kontent Plan'
-            }
-            return services[service] || 'Tanlanmagan'
-        }
-
-        // Add stagger animation to service cards
-        window.addEventListener('load', () => {
-            const serviceCards = document.querySelectorAll('.service-card')
-            serviceCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`
-            })
-
-            const pricingCards = document.querySelectorAll('.pricing-card')
-            pricingCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`
-            })
-        })
-
-        // Add floating animation to hero elements
-        setInterval(() => {
-            const heroCard = document.querySelector('.hero-card')
-            if (heroCard) {
-                heroCard.style.transform = `rotate(${Math.sin(Date.now() / 2000) * 2 + 3}deg) translateY(${Math.sin(Date.now() / 1500) * 5}px)`
-            }
-        }, 50)
-
-        // Add particles effect to hero background
-        function createParticle() {
-            const particle = document.createElement('div')
-            particle.style.cssText = `
-                position: absolute;
-                width: 4px;
-                height: 4px;
-                background: linear-gradient(45deg, #8B1538, #A91B47);
-                border-radius: 50%;
-                pointer-events: none;
-                opacity: 0.3;
-                animation: float 4s linear infinite;
-            `
-
-            particle.style.left = Math.random() * 100 + '%'
-            particle.style.animationDelay = Math.random() * 4 + 's'
-
-            const hero = document.querySelector('.hero')
-            if (hero) {
-                hero.appendChild(particle)
-
-                setTimeout(() => {
-                    particle.remove()
-                }, 4000)
-            }
-        }
-
-        // Create particles periodically
-        setInterval(createParticle, 2000)
-
-        // Phone number formatting
-        document.getElementById('phone').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '')
-            if (value.startsWith('998')) {
-                value = '+' + value
-            } else if (value.startsWith('8')) {
-                value = '+99' + value
-            } else if (!value.startsWith('+998')) {
-                value = '+998' + value
-            }
-
-            // Format: +998 90 123 45 67
-            if (value.length > 4) {
-                value = value.slice(0, 4) + ' ' + value.slice(4)
-            }
-            if (value.length > 7) {
-                value = value.slice(0, 7) + ' ' + value.slice(7)
-            }
-            if (value.length > 11) {
-                value = value.slice(0, 11) + ' ' + value.slice(11)
-            }
-            if (value.length > 14) {
-                value = value.slice(0, 14) + ' ' + value.slice(14, 16)
-            }
-
-            e.target.value = value
-        })
-
-        // Add typing effect to hero title
-        function typeWriter(element, text, speed = 100) {
-            element.textContent = ''
-            let i = 0
-
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i)
-                    i++
-                    setTimeout(type, speed)
-                }
-            }
-
-            type()
-        }
-
-        // Start typing effect when page loads
-        window.addEventListener('load', () => {
-            const heroTitle = document.querySelector('.hero-text h1')
-            if (heroTitle) {
-                const originalText = heroTitle.textContent
-                setTimeout(() => {
-                    typeWriter(heroTitle, originalText, 50)
-                }, 500)
-            }
-        })
-
-        // Brands Carousel Navigation
-        let currentPosition = 0
-        const totalBrands = 9
-        const brandsPerView = 5
-        const maxPosition = totalBrands - brandsPerView
-
-        function changeBrand(direction) {
-            const track = document.getElementById('brandsTrack')
-
-            // Calculate new position
-            const newPosition = currentPosition + direction
-
-            // Check bounds
-            if (newPosition < 0 || newPosition > maxPosition) {
-                return // Don't move if out of bounds
-            }
-
-            // Update current position
-            currentPosition = newPosition
-
-            // Calculate transform value (each item width + margin)
-            const itemWidth = 100 / brandsPerView // 20% for 5 items
-            const transformValue = -(currentPosition * itemWidth)
-
-            // Apply transform to track
-            track.style.transform = `translateX(${transformValue}%)`
-        }
-
-        function goToBrand(index) {
-            const track = document.getElementById('brandsTrack')
-
-            // Update current position
-            currentPosition = index
-
-            // Calculate transform value
-            const itemWidth = 100 / brandsPerView
-            const transformValue = -(currentPosition * itemWidth)
-
-            // Apply transform to track
-            track.style.transform = `translateX(${transformValue}%)`
-        }
-
-        // Initialize carousel
-        function initCarousel() {
-            // Set initial transform
-            const track = document.getElementById('brandsTrack')
-            track.style.transform = 'translateX(0%)'
-        }
-
-        // Auto-advance carousel every 3 seconds (faster rotation)
-        let autoAdvanceInterval = setInterval(() => {
-            if (currentPosition < maxPosition) {
-                changeBrand(1)
-            } else {
-                // Reset to beginning
-                goToBrand(0)
-            }
-        }, 3000)
-
-        // Remove hover pause functionality - keep it running continuously
-        // The carousel will now rotate automatically without stopping on hover
-
-        // Initialize when page loads
-        window.addEventListener('load', initCarousel)
-
-        // Fully automated carousel - no user interaction needed
-        // The carousel will rotate automatically every 3 seconds
+        // Toggle mobile menu
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
     </script>
 </body>
-
 </html>
