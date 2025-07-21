@@ -1777,40 +1777,70 @@
     </header>
 
     <script>
-        // Mobile menu toggle
+        // Mobile menu toggle with overlay
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
+        // Create overlay element
+        let overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        overlay.style.zIndex = '1000';
+        overlay.style.display = 'none';
+
+        document.body.appendChild(overlay);
+
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            overlay.style.display = 'none';
+        }
+
         menuToggle.addEventListener('click', () => {
             const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !expanded);
-            navLinks.classList.toggle('active');
+            if (expanded) {
+                closeMenu();
+            } else {
+                navLinks.classList.add('active');
+                menuToggle.setAttribute('aria-expanded', 'true');
+                overlay.style.display = 'block';
+            }
+        });
+
+        overlay.addEventListener('click', () => {
+            closeMenu();
         });
     </script>
 
     <style>
         /* Mobile menu styles */
         .nav-links {
-            transition: max-height 0.3s ease;
-            overflow: hidden;
-            max-height: 0;
+            transition: transform 0.3s ease;
+            overflow: auto;
             flex-direction: column;
             background: white;
-            position: absolute;
-            top: 60px;
+            position: fixed;
+            top: 0;
             right: 0;
-            width: 200px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            height: 100vh;
+            width: 250px;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
             border-radius: 0 0 0 10px;
             z-index: 1001;
+            transform: translateX(100%);
         }
 
         .nav-links.active {
-            max-height: 500px; /* enough to show all links */
+            transform: translateX(0);
         }
 
         .nav-links li {
-            margin: 0.5rem 0;
+            margin: 1.5rem 0;
+            padding-left: 1rem;
         }
 
         .nav-links a {
@@ -1818,6 +1848,7 @@
             display: block;
             color: var(--text-dark);
             font-weight: 600;
+            font-size: 1.2rem;
         }
 
         .nav-links a:hover {
@@ -1828,11 +1859,12 @@
         /* Hide nav-links on desktop when active class is toggled */
         @media (min-width: 768px) {
             .nav-links {
-                max-height: none !important;
+                transform: none !important;
                 position: static;
                 flex-direction: row;
                 box-shadow: none;
                 width: auto;
+                height: auto;
                 background: transparent;
                 border-radius: 0;
                 overflow: visible;
@@ -1840,10 +1872,12 @@
 
             .nav-links li {
                 margin: 0;
+                padding-left: 0;
             }
 
             .nav-links a {
                 padding: 0;
+                font-size: 1rem;
                 color: var(--text-dark);
             }
 
